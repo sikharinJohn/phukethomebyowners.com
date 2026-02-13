@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Luxury Houses for Rent | Supalai Bella Wichit Phuket</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background:#f0f6ff;
+    color:#0a1f44;
+    line-height:1.6;
+}
+
+h1,h2,h3 {
+    font-family:'Playfair Display', serif;
+}
+
+.hero {
+    height:100vh;
+    background:linear-gradient(rgba(0,32,96,0.75), rgba(0,32,96,0.75)),
+               url('cover.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1 {
+    font-size:60px;
+}
+
+.hero p {
+    margin-top:20px;
+    font-size:20px;
+}
+
+.section {
+    padding:100px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title {
+    text-align:center;
+    margin-bottom:60px;
+    font-size:40px;
+    color:#003c8f;
+}
+
+.features {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:40px;
+}
+
+.feature-box {
+    background:white;
+    padding:40px;
+    text-align:center;
+    border-radius:18px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.feature-box:hover {
+    transform:translateY(-10px);
+}
+
+.feature-box i {
+    font-size:40px;
+    color:#0056d6;
+    margin-bottom:15px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform:translateY(0px); }
+    50% { transform:translateY(-8px); }
+    100% { transform:translateY(0px); }
+}
+
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery img {
+    width:100%;
+    border-radius:18px;
+    transition:0.3s;
+}
+
+.gallery img:hover {
+    transform:scale(1.05);
+}
+
+.nearby-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.nearby-box {
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.nearby-box i {
+    font-size:35px;
+    color:#0056d6;
+    margin-bottom:15px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.cta {
+    background:#002c6c;
+    color:white;
+    text-align:center;
+    padding:90px 20px;
+}
+
+.cta a {
+    display:inline-block;
+    margin-top:25px;
+    padding:18px 45px;
+    background:white;
+    color:#002c6c;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:40px;
+}
+
+.footer {
+    text-align:center;
+    padding:30px;
+    background:#e3edff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>2 Brand New XL Twin Houses</h1>
+    <p>Supalai Bella Wichit · Phuket</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <h2 class="section-title">Property Highlights</h2>
+  <div class="features">
+    <div class="feature-box">
+      <i class="fa-solid fa-ruler-combined"></i>
+      <h3>149 sq.m.</h3>
+      <p>Spacious Living Area</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-bed"></i>
+      <h3>3 Bedrooms</h3>
+      <p>Private & Comfortable</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-bath"></i>
+      <h3>3 Bathrooms</h3>
+      <p>Modern Design</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-solar-panel"></i>
+      <h3>Solar Roof</h3>
+      <p>Energy Efficient</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-house-signal"></i>
+      <h3>Home Automation</h3>
+      <p>Smart Living System</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-kitchen-set"></i>
+      <h3>European Kitchen</h3>
+      <p>Dishwasher Included</p>
+    </div>
+
+    <div class="feature-box">
+      <i class="fa-solid fa-jug-detergent"></i>
+      <h3>Laundry Room</h3>
+      <p>Bosch Washing Machine</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section">
+  <h2 class="section-title">Gallery</h2>
+  <div class="gallery">
+    <img src="living.jpg">
+    <img src="bedroom.jpg">
+    <img src="kitchen.jpg">
+    <img src="exterior.jpg">
+  </div>
+</section>
+
+<!-- NEARBY -->
+<section class="section">
+  <h2 class="section-title">Nearby International Schools & Hospitals</h2>
+  <div class="nearby-grid">
+
+    <div class="nearby-box">
+      <i class="fa-solid fa-school"></i>
+      <h3>International Schools</h3>
+      <p>HeadStart International School<br>
+         British International School Phuket</p>
+    </div>
+
+    <div class="nearby-box">
+      <i class="fa-solid fa-hospital"></i>
+      <h3>Hospitals</h3>
+      <p>Bangkok Hospital Phuket<br>
+         Dibuk Hospital</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>65,000 THB / Month</h2>
+  <p>Year Contract · 2 Months Deposit + 1 Month Advance</p>
+  <a href="https://wa.me/66XXXXXXXXX">Schedule Viewing</a>
+</section>
+
+<div class="footer">
+  © 2026 Private Rental | Phuket
+</div>
+
+</body>
+</html>
