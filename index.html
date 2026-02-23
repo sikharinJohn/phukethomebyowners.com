@@ -395,8 +395,26 @@ var modalImg = document.getElementById('modalImg');
 var span = document.getElementsByClassName('close')[0];
 
 var images = document.querySelectorAll('.gallery img');
-images.forEach(function(img) {
+var currentIndex = 0;
+
+function showImage(index) {
+  modalImg.src = images[index].src;
+  currentIndex = index;
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
+
+images.forEach(function(img, index) {
   img.onclick = function(){
+    currentIndex = index;
     modal.style.display = "block";
     modalImg.src = this.src;
     setTimeout(() => {
@@ -421,6 +439,20 @@ modal.onclick = function() {
 modalImg.onclick = function(event) {
   event.stopPropagation();
 }
+
+document.addEventListener('keydown', function(event) {
+  if (modal.style.display === "block") {
+    if (event.key === "ArrowLeft") {
+      showPrev();
+    } else if (event.key === "ArrowRight") {
+      showNext();
+    } else if (event.key === "Escape") {
+      modal.style.opacity = "0";
+      modalImg.style.transform = "scale(0.8)";
+      setTimeout(() => modal.style.display = "none", 300);
+    }
+  }
+});
 </script>
 
 </body>
