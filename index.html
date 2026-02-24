@@ -42,7 +42,7 @@ h1,h2,h3{
 
 /* HERO */
 .hero{
-  height:100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background:linear-gradient(rgba(0,25,80,0.75),rgba(0,25,80,0.75)),
              url('assets/modern-two-story-house-exterior-sunset.jpg') center/cover no-repeat;
   display:flex;
@@ -453,6 +453,14 @@ document.addEventListener('keydown', function(event) {
     }
   }
 });
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 </script>
 
 </body>
