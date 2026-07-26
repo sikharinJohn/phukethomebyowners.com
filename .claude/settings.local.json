@@ -10,7 +10,10 @@
       "Bash(pkill -f \"node server.js\")",
       "Bash(lsof -ti:3000)",
       "Bash(xargs kill -9)",
-      "Bash(node /Users/sikharinwandee/Websites/phukethomebyowners.com-main/server.js)"
+      "Bash(node /Users/sikharinwandee/Websites/phukethomebyowners.com-main/server.js)",
+      "Bash(git status *)",
+      "Bash(git rm *)",
+      "Bash(git add *)"
     ]
   }
 }
