@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listing | Phuket Home by Owners</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Poppins',sans-serif;background:#f7f9ff;color:#0f2346;line-height:1.6;padding-top:80px;}
+    .top-nav{position:fixed;top:0;left:0;width:100%;z-index:99;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+    .top-nav .logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#003c8f;letter-spacing:.08em;}
+    .top-nav nav{display:flex;gap:18px;align-items:center;}
+    .top-nav a{color:#0f2346;text-decoration:none;font-weight:600;font-size:.95rem;transition:.2s;}
+    .top-nav a.active, .top-nav a:hover{color:#0056d6;}
+    .page-header{padding:140px 24px 40px;max-width:1180px;margin:0 auto;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:3rem;color:#0a1f44;margin-bottom:14px;}
+    .page-header p{color:#4b5d7c;font-size:1rem;max-width:720px;}
+    .listing-grid{max-width:1180px;margin:0 auto 80px;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+    .listing-card{background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 20px 40px rgba(15,35,70,0.12);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column;}
+    .listing-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(15,35,70,0.16);}
+    .listing-card-image{position:relative;}
+    .listing-card-image img{width:100%;height:240px;object-fit:cover;display:block;}
+    .badge-row{position:absolute;top:16px;left:16px;display:flex;flex-direction:column;gap:10px;}
+    .badge{background:rgba(255,255,255,0.94);color:#0f2346;padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,0.12);}
+    .badge.secondary{background:rgba(0,0,0,0.7);color:#ffffff;}
+    .listing-card-body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:20px;}
+    .listing-price{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;}
+    .listing-price strong{font-size:2rem;color:#d92b2b;display:block;line-height:1;}
+    .listing-price small{display:block;color:#2a3754;font-size:1rem;margin-top:6px;}
+    .unit-price{font-size:1.05rem;font-weight:700;color:#0a1f44;}
+    .listing-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+    .meta-item{display:flex;flex-direction:column;align-items:center;gap:10px;color:#17294c;}
+    .meta-item i{font-size:1.6rem;color:#2b5fcc;}
+    .meta-item strong{font-size:1rem;display:block;color:#0f2346;}
+    .meta-item span{font-size:.82rem;color:#6a7d9d;}
+    .listing-features{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+    .listing-features li{display:flex;align-items:center;gap:10px;color:#26354f;font-size:.95rem;}
+    .listing-features li::before{content:'•';color:#2fb13b;font-weight:900;line-height:1;}
+    .listing-actions{display:flex;gap:12px;flex-wrap:wrap;}
+    .listing-actions a{flex:1 1 140px;text-align:center;padding:14px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:.96rem;transition:.2s;}
+    .listing-location{font-size:.95rem;color:#47516b;font-weight:700;margin-top:16px;}
+    .btn-primary{background:#ff6200;color:#ffffff;}
+    .btn-primary:hover{background:#e05500;}
+    .btn-secondary{background:#0f5ee2;color:#ffffff;}
+    .btn-secondary:hover{background:#0a4ed0;}
+    .footer{padding:28px 24px 40px;text-align:center;color:#60708c;font-size:.95rem;}
+    @media (max-width:960px){.listing-meta{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media (max-width:680px){.top-nav{flex-direction:column;align-items:flex-start;gap:12px;}.page-header{padding-top:120px;} .listing-card-image img{height:210px;}}
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <div class="logo">Phuket Home by Owners</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="listing.html" class="active">Listing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <header class="page-header">
+    <h1>Property Listings</h1>
+    <p>Choose a rental house ready to move in, directly from the owner, with clear information including price, size, features, and move-in availability status.</p>
+  </header>
+    <main class="listing-grid">
+    <article class="listing-card">
+      <div class="listing-card-image">
+        <img src="assets/649688117_912329065050735_3397665245505960616_n.jpg" alt="House 1">
+        <div class="badge-row">
+          <span class="badge">Available: Now</span>
+        </div>
+      </div>
+      <div class="listing-card-body">
+        <div class="listing-location">Supalai Bella Wichit · Phuket</div>
+        <div class="listing-price">
+          <div>
+            <strong>55,000 THB</strong>
+            <small>Per Month</small>
+          </div>
+          <div class="unit-price">฿241/SqM</div>
+        </div>
+        <div class="listing-meta">
+          <div class="meta-item"><i class="fa-solid fa-bed"></i><strong>3</strong><span>Beds</span></div>
+          <div class="meta-item"><i class="fa-solid fa-bath"></i><strong>3</strong><span>Baths</span></div>
+          <div class="meta-item"><i class="fa-solid fa-ruler-combined"></i><strong>249</strong><span>SqM</span></div>
+          <div class="meta-item"><i class="fa-solid fa-map"></i><strong>162</strong><span>Plot Size</span></div>
+        </div>
+        <ul class="listing-features">
+          <li>Fully Furnished</li>
+          <li>Park View</li>
+        </ul>
+        <div class="listing-actions">
+          <a class="btn-secondary" href="index.html#contact">More Details</a>
+        </div>
+      </div>
+    </article>
+  <main class="listing-grid">
+    <article class="listing-card">
+      <div class="listing-card-image">
+        <img src="assets/649688117_912329065050735_3397665245505960616_n.jpg" alt="House 2">
+        <div class="badge-row">
+          <span class="badge">Available: Mar 16, 2027</span>
+        </div>
+      </div>
+      <div class="listing-card-body">
+        <div class="listing-location">Supalai Bella Wichit · Phuket</div>
+        <div class="listing-price">
+          <div>
+            <strong>65,000 THB</strong>
+            <small>Per Month</small>
+          </div>
+          <div class="unit-price">฿241/SqM</div>
+        </div>
+        <div class="listing-meta">
+          <div class="meta-item"><i class="fa-solid fa-bed"></i><strong>3</strong><span>Beds</span></div>
+          <div class="meta-item"><i class="fa-solid fa-bath"></i><strong>3</strong><span>Baths</span></div>
+          <div class="meta-item"><i class="fa-solid fa-ruler-combined"></i><strong>249</strong><span>SqM</span></div>
+          <div class="meta-item"><i class="fa-solid fa-map"></i><strong>162</strong><span>Plot Size</span></div>
+        </div>
+        <ul class="listing-features">
+          <li>Fully Furnished</li>
+          <li>Park View</li>
+        </ul>
+        <div class="listing-actions">
+          <a class="btn-secondary" href="index.html#contact">More Details</a>
+        </div>
+      </div>
+    </article>
+    <article class="listing-card">
+      <div class="listing-card-image">
+        <img src="assets/649755234_912334648383510_8624423900106279405_n.jpg" alt="House 3">
+        <div class="badge-row">
+          <span class="badge">Available: Mar 23, 2027</span>
+        </div>
+      </div>
+      <div class="listing-card-body">
+        <div class="listing-location">Supalai Bella Wichit · Phuket</div>
+        <div class="listing-price">
+          <div>
+            <strong>65,000 THB</strong>
+            <small>Per Month</small>
+          </div>
+          <div class="unit-price">฿406/SqM</div>
+        </div>
+        <div class="listing-meta">
+          <div class="meta-item"><i class="fa-solid fa-bed"></i><strong>3</strong><span>Beds</span></div>
+          <div class="meta-item"><i class="fa-solid fa-bath"></i><strong>3</strong><span>Baths</span></div>
+          <div class="meta-item"><i class="fa-solid fa-ruler-combined"></i><strong>160</strong><span>SqM</span></div>
+          <div class="meta-item"><i class="fa-solid fa-map"></i><strong>-</strong><span>Plot Size</span></div>
+        </div>
+        <ul class="listing-features">
+          <li>Fully Furnished</li>
+          <li>Garden View</li>
+        </ul>
+        <div class="listing-actions">
+          <a class="btn-secondary" href="index.html#contact">More Details</a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="footer">© 2026 Phuket Home by Owners</footer>
+</body>
+</html>

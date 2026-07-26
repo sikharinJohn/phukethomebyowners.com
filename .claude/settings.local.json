@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm show *)",
+      "Bash(node server.js)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000/thalang181.html)",
+      "Bash(mv \"/Users/sikharinwandee/Websites/phukethomebyowners.com-main/House Viewing Appointment Form.dc.html\" \"/Users/sikharinwandee/Websites/phukethomebyowners.com-main/viewing.html\")",
+      "Bash(pkill -f \"node server.js\")",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill -9)",
+      "Bash(node /Users/sikharinwandee/Websites/phukethomebyowners.com-main/server.js)"
+    ]
+  }
+}

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Editor | PhuketHomeByOwners</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f8ff;
+      color: #0f1f3c;
+      margin: 0;
+      padding: 0;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1, h2 {
+      margin: 0 0 18px;
+      color: #003c8f;
+    }
+    .section {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 18px 45px rgba(0, 44, 118, 0.08);
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      border: 1px solid #d7dce8;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      outline: none;
+    }
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .item-row {
+      border: 1px solid #e1e6f3;
+      border-radius: 16px;
+      padding: 16px;
+      position: relative;
+      background: #fafbff;
+    }
+    .item-row button.remove {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      border: none;
+      background: #ff4d4f;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .actions button,
+    .actions input[type="file"] {
+      border: none;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .actions button:hover,
+    .actions input[type="file"]:hover {
+      transform: translateY(-1px);
+    }
+    .button-primary {
+      background: #003c8f;
+      color: white;
+    }
+    .button-secondary {
+      background: #eaf1ff;
+      color: #003c8f;
+    }
+    .hidden {
+      display: none !important;
+    }
+    .auth-section p {
+      margin-bottom: 12px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    #signOutButton {
+      margin-top: 0;
+    }
+    .message {
+      margin-top: 16px;
+      color: #0b3f78;
+      font-weight: 600;
+    }
+    .small-text {
+      font-size: 13px;
+      color: #556680;
+      margin-top: -10px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Admin Editor</h1>
+      <button type="button" class="button-secondary hidden" id="signOutButton">Sign out</button>
+      <p>แก้ไขเนื้อหาเว็บไซต์และเพิ่มรูปได้ด้วยหน้าเว็บนี้ จากนั้นกด Save และเปิดหน้าหลักเพื่อดูผล</p>
+    </header>
+
+    <section class="section auth-section" id="authSection">
+      <h2>Admin Access</h2>
+      <p>กรุณาเข้าสู่ระบบด้วยบัญชี Gmail เพื่อใช้งานส่วนจัดการ</p>
+      <div id="googleSignInButton"></div>
+      <div id="authStatus" class="message"></div>
+      <div id="fallbackLoginSection" class="hidden">
+        <p class="small-text">หาก Google OAuth ไม่ทำงาน ให้ใช้สำรองโดยกรอก Gmail ที่ได้รับอนุญาต</p>
+        <div class="grid two-col">
+          <div>
+            <label for="fallbackEmail">Gmail</label>
+            <input type="text" id="fallbackEmail" placeholder="sikharin.wandee@gmail.com">
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="button-secondary" id="fallbackLoginButton">Fallback Gmail Login</button>
+        </div>
+      </div>
+      <p class="small-text">เฉพาะบัญชี Gmail เท่านั้นที่สามารถเข้าถึงได้</p>
+    </section>
+
+    <div id="editorContent" class="hidden">
+    <section class="section" id="heroSection">
+      <h2>Hero / ส่วนหัว</h2>
+      <div class="grid two-col">
+        <div>
+          <label for="heroTitle">หัวข้อหลัก</label>
+          <input type="text" id="heroTitle" placeholder="New House for Rent">
+        </div>
+        <div>
+          <label for="heroBackground">พื้นหลัง Hero (URL หรือ Data URL)</label>
+          <input type="text" id="heroBackground" placeholder="assets/hero-image.jpg">
+        </div>
+      </div>
+      <label for="heroSub1">ข้อความย่อย 1</label>
+      <input type="text" id="heroSub1" placeholder="📅 Ready to Move In Now">
+      <label for="heroSub2">ข้อความย่อย 2</label>
+      <input type="text" id="heroSub2" placeholder="@ Supalai Bella Wichit · Phuket">
+    </section>
+
+    <section class="section" id="ctaSection">
+      <h2>CTA / ติดต่อ</h2>
+      <div class="grid two-col">
+        <div>
+          <label for="ctaTitle">CTA หัวข้อ</label>
+          <input type="text" id="ctaTitle">
+        </div>
+        <div>
+          <label for="ctaButtonText">ปุ่มข้อความ</label>
+          <input type="text" id="ctaButtonText">
+        </div>
+      </div>
+      <label for="ctaSubtitle">คำอธิบาย</label>
+      <input type="text" id="ctaSubtitle">
+      <label for="ctaLink">ลิงก์ปุ่ม</label>
+      <input type="text" id="ctaLink">
+    </section>
+
+    <section class="section" id="gallerySection">
+      <h2>Gallery / รูปภาพ</h2>
+      <div id="galleryFields"></div>
+      <button type="button" class="button-secondary" id="addGalleryImage">เพิ่มรูปภาพ</button>
+      <p class="small-text">สามารถใช้ URL หรืออัพโหลดไฟล์รูปภาพเพื่อเก็บเป็น Data URL ใน LocalStorage ได้ แต่รูปขนาดใหญ่เกินไปอาจทำให้ไม่สามารถบันทึกได้</p>
+    </section>
+
+    <section class="section" id="featuresSection">
+      <h2>Property Highlights / รายการคุณสมบัติ</h2>
+      <div id="featureFields"></div>
+      <button type="button" class="button-secondary" id="addFeature">เพิ่มคุณสมบัติ</button>
+    </section>
+
+    <section class="section" id="rentalSection">
+      <h2>Rental Details / รายละเอียดเช่า</h2>
+      <div class="grid two-col">
+        <div>
+          <label for="rentalPrice">ราคา</label>
+          <input type="text" id="rentalPrice">
+        </div>
+        <div>
+          <label for="rentalContract">สัญญา</label>
+          <input type="text" id="rentalContract">
+        </div>
+      </div>
+      <label for="rentalIncluded">Included</label>
+      <textarea id="rentalIncluded" placeholder="แยกแต่ละรายการโดยขึ้นบรรทัดใหม่"></textarea>
+      <label for="rentalNotIncluded">Not Included</label>
+      <textarea id="rentalNotIncluded" placeholder="แยกแต่ละรายการโดยขึ้นบรรทัดใหม่"></textarea>
+    </section>
+
+    <div class="actions">
+      <button type="button" class="button-primary" id="saveButton">Save Changes</button>
+      <button type="button" class="button-secondary" id="resetButton">Reset to Default</button>
+      <button type="button" class="button-secondary" id="exportButton">Export JSON</button>
+      <label class="button-secondary" for="importFile" style="cursor:pointer;">Import JSON</label>
+      <input type="file" id="importFile" accept="application/json" style="display:none;">
+      <button type="button" class="button-secondary" id="previewButton">Open Site</button>
+    </div>
+    <div class="message" id="statusMessage"></div>
+    </div>
+  </div>
+
+  <script src="../content-data.js"></script>
+  <script>
+    const STORAGE_KEY = 'phuketHomeSiteData';
+    const statusMessage = document.getElementById('statusMessage');
+    const authStatus = document.getElementById('authStatus');
+    const authSection = document.getElementById('authSection');
+    const fallbackLoginSection = document.getElementById('fallbackLoginSection');
+    const fallbackEmailInput = document.getElementById('fallbackEmail');
+    const editorContent = document.getElementById('editorContent');
+    const signOutButton = document.getElementById('signOutButton');
+
+    const AUTH_CLIENT_ID = '926432146374-q2im5e1dbbredi2222urbsjef3gj9kag.apps.googleusercontent.com';
+    const ALLOWED_GMAIL_LIST = ['sikharin.wandee@gmail.com'];
+
+    function updateAuthStatus(text, isError = false) {
+      if (!authStatus) return;
+      authStatus.textContent = text;
+      authStatus.style.color = isError ? '#c32d2d' : '#0b3f78';
+    }
+
+    function isAllowedEmail(email) {
+      if (!email || typeof email !== 'string') return false;
+      return ALLOWED_GMAIL_LIST.includes(email.trim().toLowerCase());
+    }
+
+    function dataUrlSizeInKB(dataUrl) {
+      const base64String = dataUrl.split(',')[1] || '';
+      return Math.ceil((base64String.length * 3) / 4 / 1024);
+    }
+
+    function resizeImageFile(file, maxWidth = 1200, quality = 0.75) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+          URL.revokeObjectURL(url);
+          const ratio = img.width / img.height;
+          const width = Math.min(img.width, maxWidth);
+          const height = Math.round(width / ratio);
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.onerror = (error) => {
+          URL.revokeObjectURL(url);
+          reject(error);
+        };
+        img.src = url;
+      });
+    }
+
+    async function uploadFileToServer(file) {
+      const formData = new FormData();
+      formData.append('file', file);
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+      });
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Upload failed');
+      }
+      const result = await response.json();
+      return result.filePath;
+    }
+
+    function decodeJwt(jwt) {
+      const parts = jwt.split('.');
+      if (parts.length !== 3) return null;
+      try {
+        const payload = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+        const decoded = atob(payload);
+        return JSON.parse(decodeURIComponent(escape(decoded)));
+      } catch (error) {
+        console.error('JWT decode failed', error);
+        return null;
+      }
+    }
+
+    function setAuthState(email) {
+      if (!isAllowedEmail(email)) {
+        updateAuthStatus('บัญชี Gmail นี้ไม่มีสิทธิ์ใช้งาน', true);
+        hideEditor();
+        return;
+      }
+      sessionStorage.setItem('adminEmail', email);
+      updateAuthStatus(`Signed in as ${email}`);
+      showEditor();
+    }
+
+    function handleCredentialResponse(response) {
+      const payload = decodeJwt(response.credential);
+      const email = payload?.email;
+      if (!email) {
+        updateAuthStatus('ไม่สามารถอ่านที่อยู่อีเมลจาก Google ได้', true);
+        return;
+      }
+      setAuthState(email);
+    }
+
+    function showEditor() {
+      authSection.classList.add('hidden');
+      editorContent.classList.remove('hidden');
+      signOutButton.classList.remove('hidden');
+    }
+
+    function hideEditor() {
+      authSection.classList.remove('hidden');
+      editorContent.classList.add('hidden');
+      signOutButton.classList.add('hidden');
+    }
+
+    function initGoogleSignIn() {
+      if (!window.google || !google.accounts || !google.accounts.id) {
+        setTimeout(initGoogleSignIn, 200);
+        return;
+      }
+      google.accounts.id.initialize({
+        client_id: AUTH_CLIENT_ID,
+        callback: handleCredentialResponse,
+        auto_select: false,
+        cancel_on_tap_outside: true
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('googleSignInButton'),
+        { theme: 'outline', size: 'large', width: '320' }
+      );
+    }
+
+    function signOut() {
+      sessionStorage.removeItem('adminEmail');
+      if (window.google && google.accounts && google.accounts.id) {
+        google.accounts.id.disableAutoSelect();
+      }
+      updateAuthStatus('Signed out');
+      hideEditor();
+    }
+
+    function showFallbackLogin() {
+      if (fallbackLoginSection) {
+        fallbackLoginSection.classList.remove('hidden');
+      }
+    }
+
+    function fallbackSignIn() {
+      const email = fallbackEmailInput?.value || '';
+      if (!email.trim()) {
+        updateAuthStatus('กรุณากรอก Gmail สำหรับสำรองล็อกอิน', true);
+        return;
+      }
+      setAuthState(email);
+    }
+
+    function checkSavedAuth() {
+      const savedEmail = sessionStorage.getItem('adminEmail');
+      if (isAllowedEmail(savedEmail)) {
+        setAuthState(savedEmail);
+      } else {
+        hideEditor();
+      }
+    }
+
+    initGoogleSignIn();
+    checkSavedAuth();
+    setTimeout(() => {
+      if (!window.google || !google.accounts || !google.accounts.id) {
+        showFallbackLogin();
+      }
+    }, 2000);
+
+    document.getElementById('fallbackLoginButton')?.addEventListener('click', fallbackSignIn);
+    signOutButton.addEventListener('click', signOut);
+
+    function getSavedData() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : window.defaultSiteData;
+      } catch (error) {
+        console.error(error);
+        return window.defaultSiteData;
+      }
+    }
+
+    function saveData(data) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        return true;
+      } catch (error) {
+        if (error instanceof DOMException && (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED')) {
+          updateStatus('ไม่สามารถบันทึกได้: เนื้อหามีขนาดใหญ่เกินกว่า LocalStorage กรุณาใช้ URL รูปภาพแทน Data URL หรือลบรูปภาพบางส่วน', true);
+          return false;
+        }
+        throw error;
+      }
+    }
+
+    function updateStatus(text, isError = false) {
+      statusMessage.textContent = text;
+      statusMessage.style.color = isError ? '#c32d2d' : '#0b3f78';
+    }
+
+    function createGalleryRow(src, index) {
+      const row = document.createElement('div');
+      row.className = 'item-row gallery-row';
+      row.dataset.index = index;
+      row.innerHTML = `
+        <label>รูป ${index + 1}</label>
+        <input type="text" class="gallery-src" placeholder="URL หรือ Data URL ของรูป" value="${src.replace(/"/g, '&quot;')}">
+        <input type="file" class="gallery-file" accept="image/*">
+        <button type="button" class="remove">ลบ</button>
+      `;
+      const removeButton = row.querySelector('.remove');
+      removeButton.addEventListener('click', () => {
+        row.remove();
+      });
+
+      const fileInput = row.querySelector('.gallery-file');
+      const srcInput = row.querySelector('.gallery-src');
+      fileInput.addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+        if (!file.type.startsWith('image/')) {
+          updateStatus('โปรดเลือกไฟล์รูปภาพเท่านั้น', true);
+          return;
+        }
+
+        try {
+          const uploadedPath = await uploadFileToServer(file);
+          srcInput.value = uploadedPath;
+          updateStatus(`อัปโหลดไฟล์ไปยังเซิร์ฟเวอร์แล้ว: ${uploadedPath}`);
+          return;
+        } catch (error) {
+          console.warn('Upload failed, falling back to local data URL:', error);
+          updateStatus('ไม่สามารถอัปโหลดไปยังเซิร์ฟเวอร์ได้ ใช้ Data URL แทน', true);
+        }
+
+        if (file.size > 300 * 1024) {
+          try {
+            const resized = await resizeImageFile(file, 1200, 0.7);
+            srcInput.value = resized;
+            const sizeKb = dataUrlSizeInKB(resized);
+            if (sizeKb > 500) {
+              updateStatus('ไฟล์รูปภาพยังใหญ่เกินไป เลือกไฟล์ขนาดเล็กกว่านี้หรือใช้ URL ภายนอก', true);
+            } else {
+              updateStatus(`รูปถูกย่อลงเรียบร้อย (${sizeKb} KB)`);
+            }
+          } catch (error) {
+            console.error(error);
+            updateStatus('ไม่สามารถประมวลผลรูปภาพได้', true);
+          }
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          srcInput.value = reader.result;
+          updateStatus('ไฟล์ถูกแปลงเป็น Data URL แล้ว');
+        };
+        reader.readAsDataURL(file);
+      });
+      return row;
+    }
+
+    function createFeatureRow(feature, index) {
+      const row = document.createElement('div');
+      row.className = 'item-row feature-row';
+      row.dataset.index = index;
+      row.innerHTML = `
+        <label>Feature ${index + 1}</label>
+        <input type="text" class="feature-title" placeholder="หัวข้อ" value="${feature.title.replace(/"/g, '&quot;')}">
+        <label>Icon CSS class</label>
+        <input type="text" class="feature-icon" placeholder="fa-solid fa-bed" value="${(feature.icon || '').replace(/"/g, '&quot;')}">
+        <label>รายละเอียด (คั่นด้วยบรรทัดใหม่)</label>
+        <textarea class="feature-desc">${feature.desc.join('\n')}</textarea>
+        <button type="button" class="remove">ลบ</button>
+      `;
+      row.querySelector('.remove').addEventListener('click', () => row.remove());
+      return row;
+    }
+
+    function renderGallery(images) {
+      const container = document.getElementById('galleryFields');
+      container.innerHTML = '';
+      images.forEach((src, index) => container.appendChild(createGalleryRow(src, index)));
+    }
+
+    function renderFeatures(features) {
+      const container = document.getElementById('featureFields');
+      container.innerHTML = '';
+      features.forEach((feature, index) => container.appendChild(createFeatureRow(feature, index)));
+    }
+
+    function fillForm(data) {
+      document.getElementById('heroTitle').value = data.hero.title || '';
+      document.getElementById('heroSub1').value = data.hero.sub1 || '';
+      document.getElementById('heroSub2').value = data.hero.sub2 || '';
+      document.getElementById('heroBackground').value = data.hero.backgroundImage || '';
+      document.getElementById('ctaTitle').value = data.cta.title || '';
+      document.getElementById('ctaSubtitle').value = data.cta.subtitle || '';
+      document.getElementById('ctaButtonText').value = data.cta.buttonText || '';
+      document.getElementById('ctaLink').value = data.cta.buttonLink || '';
+      document.getElementById('rentalPrice').value = data.rental.price || '';
+      document.getElementById('rentalContract').value = data.rental.contract || '';
+      document.getElementById('rentalIncluded').value = (data.rental.included || []).join('\n');
+      document.getElementById('rentalNotIncluded').value = (data.rental.notIncluded || []).join('\n');
+      renderGallery(data.galleryImages || []);
+      renderFeatures(data.features || []);
+    }
+
+    function collectFormData() {
+      const gallery = Array.from(document.querySelectorAll('.gallery-src')).map(input => input.value.trim()).filter(Boolean);
+      const features = Array.from(document.querySelectorAll('#featureFields .feature-row')).map(row => {
+        const title = row.querySelector('.feature-title');
+        const icon = row.querySelector('.feature-icon');
+        const desc = row.querySelector('.feature-desc');
+        if (!title || !desc) return null;
+        return {
+          icon: icon && icon.value.trim() ? icon.value.trim() : 'fa-solid fa-star',
+          title: title.value.trim() || 'Feature',
+          desc: desc.value.split('\n').map(line => line.trim()).filter(Boolean)
+        };
+      }).filter(Boolean);
+
+      return {
+        hero: {
+          title: document.getElementById('heroTitle').value.trim(),
+          sub1: document.getElementById('heroSub1').value.trim(),
+          sub2: document.getElementById('heroSub2').value.trim(),
+          backgroundImage: document.getElementById('heroBackground').value.trim()
+        },
+        cta: {
+          title: document.getElementById('ctaTitle').value.trim(),
+          subtitle: document.getElementById('ctaSubtitle').value.trim(),
+          buttonText: document.getElementById('ctaButtonText').value.trim(),
+          buttonLink: document.getElementById('ctaLink').value.trim()
+        },
+        galleryImages: gallery,
+        features: features.length ? features : window.defaultSiteData.features,
+        rental: {
+          price: document.getElementById('rentalPrice').value.trim(),
+          contract: document.getElementById('rentalContract').value.trim(),
+          included: document.getElementById('rentalIncluded').value.split('\n').map(line => line.trim()).filter(Boolean),
+          notIncluded: document.getElementById('rentalNotIncluded').value.split('\n').map(line => line.trim()).filter(Boolean)
+        }
+      };
+    }
+
+    document.getElementById('addGalleryImage').addEventListener('click', () => {
+      const container = document.getElementById('galleryFields');
+      const count = container.querySelectorAll('.item-row').length;
+      container.appendChild(createGalleryRow('', count));
+    });
+
+    document.getElementById('addFeature').addEventListener('click', () => {
+      const container = document.getElementById('featureFields');
+      const count = container.querySelectorAll('.item-row').length;
+      container.appendChild(createFeatureRow({ title: '', desc: [''] }, count));
+    });
+
+    document.getElementById('saveButton').addEventListener('click', () => {
+      try {
+        const data = collectFormData();
+        const saved = saveData(data);
+        if (saved) {
+          updateStatus('Saved successfully. เปิดหน้าหลักแล้วรีโหลดเพื่อดูผล');
+        }
+      } catch (error) {
+        console.error(error);
+        updateStatus('ไม่สามารถบันทึกได้ โปรดลองใหม่', true);
+      }
+    });
+
+    document.getElementById('resetButton').addEventListener('click', () => {
+      if (!confirm('รีเซ็ตข้อมูลเป็นค่าเริ่มต้น?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      fillForm(window.defaultSiteData);
+      updateStatus('รีเซ็ตเป็นค่าเริ่มต้นแล้ว');
+    });
+
+    document.getElementById('exportButton').addEventListener('click', () => {
+      const data = getSavedData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'site-data.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('importFile').addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = JSON.parse(reader.result);
+          saveData(imported);
+          fillForm(imported);
+          updateStatus('นำเข้า JSON สำเร็จแล้ว');
+        } catch (error) {
+          console.error(error);
+          updateStatus('ไฟล์ JSON ไม่ถูกต้อง', true);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById('previewButton').addEventListener('click', () => {
+      window.open('../index.html', '_blank');
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fillForm(getSavedData());
+    });
+  </script>
+</body>
+</html>

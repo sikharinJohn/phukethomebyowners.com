@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="House for Rent | Supalai Bella Wichit Phuket">
+<meta property="og:description" content="New house for rent at Supalai Bella Wichit, Phuket. Available now, 3 bedrooms, solar roof, home automation.">
+<meta property="og:image" content="https://phukethomebyowners.com/assets/649106613_912330001717308_3068680816678464120_n.jpg">
+<meta property="og:url" content="https://phukethomebyowners.com">
+<meta property="og:type" content="website">
+<title>House for Rent | Supalai Bella Wichit Phuket</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#ffffff;
+  color:#0a1f44;
+  line-height:1.6;
+  padding-top: 80px;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
+
+.section{
+  padding:120px 20px 80px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:60px;
+  color:#003c8f;
+}
+
+/* HERO */
+.hero{
+  height: calc(var(--vh, 1vh) * 100 - 80px);
+  padding-top: 80px;
+  background:linear-gradient(rgba(0,25,80,0.75),rgba(0,25,80,0.75)),
+             url('assets/649106613_912330001717308_3068680816678464120_n.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.hero h1{
+  font-size:60px;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:20px;
+  opacity:.9;
+}
+
+.lang-switcher {
+  position: relative;
+  z-index: 40;
+  background: rgba(255,255,255,0.95);
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.lang-switcher i {
+  color: #0a1f44;
+  font-size: 18px;
+  pointer-events: none;
+}
+.lang-switcher select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  min-height: 70px;
+  padding: 0 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.top-nav nav {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-nav .nav-toggle {
+  display: none;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #0a1f44;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.top-nav nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-nav a {
+  color: #0a1f44;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 18px 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.top-nav a:hover,
+.top-nav a.active {
+  color: #0056d6;
+  transform: translateY(-1px);
+}
+
+.top-nav .logo {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-right: 20px;
+}
+
+@media (max-width: 850px) {
+  .top-nav {
+    padding: 0 16px;
+    justify-content: flex-end;
+  }
+
+  .top-nav .nav-toggle {
+    display: block;
+    left: 24px;
+    right: auto;
+  }
+
+  .top-nav nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.98);
+    flex-direction: column;
+    align-items: stretch;
+    display: none;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .top-nav nav.open {
+    display: flex;
+  }
+
+  .top-nav a {
+    padding: 14px 18px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    text-align: center;
+  }
+}
+
+.lang-switcher select {
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: white;
+  font-size: 14px;
+}
+
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+}
+
+.feature-box{
+  background:#ffffff;
+  padding:40px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:.4s;
+}
+
+.feature-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,86,214,0.2);
+}
+
+.feature-box i{
+  font-size:45px;
+  color:#0056d6;
+  margin-bottom:15px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
+
+/* SMART SECTION */
+.smart-section{
+  text-align:center;
+  background:#f5f9ff;
+  padding:90px 20px;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+
+.gallery img{
+  width:100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius:20px;
+  transition:.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 35px rgba(0,86,214,0.25);
+}
+
+/* MAP */
+.map-container{
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* RENTAL BOX */
+.rental-box{
+  background:#f5f9ff;
+  padding:40px;
+  border-radius:30px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.rental-card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rental-card-main {
+  background: linear-gradient(180deg,#003c8f,#0056d6);
+  color: white;
+}
+
+.rental-card-main .price-tag {
+  font-size: 48px;
+  padding: 18px 32px;
+  border-radius: 40px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.18);
+}
+
+.rental-card-main p,
+.rental-card-main .rental-subtitle {
+  color: rgba(255,255,255,0.9);
+}
+
+.rental-card-main .rental-contract {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.rental-card-main .rental-subtitle {
+  margin-top: 0;
+  line-height: 1.7;
+}
+
+.rental-card-main .cta-button {
+  margin-top: 30px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: white;
+  color: #003c8f;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.rental-card-info h3 {
+  margin-top: 0;
+  color: #003c8f;
+  font-size: 1.2rem;
+}
+
+.rental-card-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.rental-card-info li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  color: #1d2f5a;
+}
+
+.rental-card-info li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+
+.rental-card-info .included li::before {
+  content: '✓';
+  color: #0056d6;
+}
+
+.rental-card-info .not-included li::before {
+  content: '✕';
+  color: #d62828;
+}
+
+@media (max-width: 900px) {
+  .rental-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* NEARBY */
+.nearby-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.nearby-box{
+  background:#ffffff;
+  padding:35px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:.3s;
+}
+
+.nearby-box:hover{
+  transform:translateY(-8px);
+}
+
+.nearby-box i{
+  font-size:38px;
+  color:#0056d6;
+  margin-bottom:15px;
+  animation:float 3s infinite;
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(90deg,#003c8f,#0056d6);
+  text-align:center;
+  padding:100px 20px;
+  color:white;
+}
+
+.cta a{
+  display:inline-block;
+  margin-top:30px;
+  padding:18px 45px;
+  background:white;
+  color:#003c8f;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.cta a:hover{
+  transform:translateY(-3px);
+  background:#e3edff;
+}
+
+.share-section {
+  background: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.share-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0 10px;
+}
+
+.share-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.share-card:hover {
+  transform: translateY(-3px);
+  opacity: .95;
+}
+
+.share-card .share-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.share-card span {
+  display: none;
+}
+
+.share-card .share-copy-feedback {
+  display: none;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.share-card.share-facebook { background: #3b5998; }
+.share-card.share-x { background: #000000; }
+.share-card.share-viber { background: #7e3cff; }
+.share-card.share-line { background: #00c300; }
+.share-card.share-email { background: #7d7d7d; }
+.share-card.share-linkedin { background: #0a66c2; }
+.share-card.share-whatsapp { background: #25d366; }
+.share-card.share-copy { background: #4f5b62; }
+
+.share-card.share-copy.copied .share-copy-feedback {
+  display: inline-block;
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  background:#f2f6ff;
+  font-size:14px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-width: none;
+  max-height: 80vh;
+  object-fit: contain;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* make container a positioning context */
+  position: fixed;
+}
+
+.modal .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 50px;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+  z-index: 5;
+}
+.modal .nav:hover {
+  color: #ccc;
+}
+.modal .nav.prev {
+  left: 20px;
+}
+.modal .nav.next {
+  right: 20px;
+}
+</style>
+<script src="content-data.js"></script>
+</head>
+
+<body>
+  <div class="top-nav">
+    <button class="nav-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#highlights">Highlights</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#location">Location</a>
+      <a href="#rental">Rental</a>
+    </nav>
+    <div class="lang-switcher" aria-label="Language selector">
+      <i class="fa-solid fa-globe" aria-hidden="true"></i>
+      <select id="langSelect" aria-label="Language selector">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+  </div>
+
+<section id="hero" class="hero">
+  <div>
+    <h1>New House for Rent</h1>
+    <p>📅 Ready to Move In Now</p>
+    <p>@ Supalai Bella Wichit · Phuket</p>
+  </div>
+</section>
+
+<section id="highlights" class="section">
+  <h2 class="section-title">Property Highlights</h2>
+  <div class="features">
+    <div class="feature-box"><i class="fa-solid fa-ruler-combined"></i><h3>Spacious House</h3><p>149 sq.m. Living Area</p> <p>174 sq.m. Land Area</p></div>
+    <div class="feature-box"><i class="fa-solid fa-bed"></i><h3>3 Bedrooms</h3><p>Private & Comfortable</p> <p>Premium pocket spring mattress</p> <p>with 500-thread-count dust mite–resistant bedding</p>   </div>
+    <div class="feature-box"><i class="fa-solid fa-bath"></i><h3>3 Bathrooms</h3><p>Modern Design</p> <p>Glass shower partition</p> <p>Bathroom power outlets </p>  </div>
+    <div class="feature-box"><i class="fa-solid fa-car"></i><h3>2 Parking</h3><p>Secure Covered Spaces</p></div>
+    <div class="feature-box"><i class="fa-solid fa-seedling"></i><h3>House with Garden</h3><p>Beautiful Landscaped Garden</p></div>
+    <div class="feature-box"><i class="fa-solid fa-solar-panel"></i><h3>Solar Roof</h3><p>Energy Efficient - Save electricity bill up to 1,000 THB/month</p></div>
+    <div class="feature-box"><i class="fa-solid fa-house-signal"></i><h3>Home Automation</h3><p>Smart Living</p><p>Google Home Compatible</p></div>
+    <div class="feature-box"><i class="fa-solid fa-home"></i><h3>Common Area</h3><p>Children's Playground<br>Fitness center<br>Swimming pool<br>24-hour security</p></div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <h2>Schedule a Private Viewing</h2>
+  <p>Directly with the Owner</p>
+  <a href="https://wa.me/4915903789344" target="_blank">Contact via WhatsApp (TH / ENG / German)</a>
+</section>
+<section id="gallery" class="section">
+  <h2 class="section-title">Gallery</h2>
+  <div class="gallery">
+    <img src="assets/649106613_912330001717308_3068680816678464120_n.jpg">
+    <img src="assets/649087881_912328591717449_2720326909443564418_n.jpg">
+    <img src="assets/649688117_912329065050735_3397665245505960616_n.jpg">
+    <img src="assets/650868946_912328538384121_848289713624851930_n.jpg">
+    <img src="assets/649161818_912328921717416_9132437468210805655_n.jpg">
+    <img src="assets/649164377_912328568384118_2610620346018173471_n.jpg">
+    <img src="assets/649146338_912329198384055_5710114897842702203_n.jpg">
+    <img src="assets/649137531_912329141717394_6463385777069564784_n.jpg">
+    <img src="assets/649795204_912329561717352_8163913889721313436_n.jpg">
+    <img src="assets/649693566_912328821717426_5874034865674510488_n.jpg">
+    <img src="assets/649739473_912329531717355_3936149096037317940_n.jpg">
+    <img src="assets/649150005_912329368384038_7390394026330857910_n.jpg">
+    <img src="assets/649087896_912334628383512_2545487935769775759_n.jpg">
+    <img src="assets/650871568_912329331717375_3302669157130606665_n.jpg">
+    <img src="assets/649755234_912334648383510_8624423900106279405_n.jpg">
+    <img src="assets/650850234_912329441717364_3953502320173639708_n.jpg">
+    <img src="assets/DSCF7860.jpg">
+    <img src="assets/649138005_912329261717382_5993991192895310418_n.jpg">
+    <img src="assets/649692909_912329295050712_2463477518976755344_n.jpg">
+    <img src="assets/649687575_912328661717442_1854080869825891112_n.jpg">
+    <img src="assets/649164565_912328885050753_4894312717878556696_n.jpg">
+    <img src="assets/649715703_912335215050120_6335087275403095099_n.jpg">
+    <img src="assets/649686967_912336008383374_5104412777241318767_n.jpg">
+    <img src="assets/outdoor-recreation-basketball-court-area.jpg">
+    <img src="assets/649745739_912335195050122_6598495188304133502_n.jpg">
+    <img src="assets/649667668_912335241716784_990753631349627249_n.jpg">
+  </div>
+</section>
+
+<section id="smart" class="smart-section">
+  <h2 class="section-title">Smart & Sustainable Living</h2>
+  <p>Equipped with Solar Roof Top and Home Automation system for modern lifestyle comfort and energy efficiency.</p>
+</section>
+
+<section id="location" class="section">
+  <h2 class="section-title">Prime Location</h2>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps?q=Supalai+Bella+Wichit+Phuket&output=embed&language=en"
+            width="100%" height="450" style="border:0;" loading="lazy"></iframe>
+  </div>
+</section>
+
+<section id="nearby" class="section">
+  <h2 class="section-title">Nearby International Schools & Hospitals</h2>
+  <div class="nearby-grid">
+    <div class="nearby-box"><i class="fa-solid fa-school"></i><h3>International Schools</h3><p>HeadStart International School<br>Oak Meadow International School</p></div>
+    <div class="nearby-box"><i class="fa-solid fa-city"></i><h3>Central Phuket Area</h3><p>Phuket Town</p><p>Chalong</p></div>
+    <div class="nearby-box"><i class="fa-solid fa-hospital"></i><h3>Hospitals</h3><p>Bangkok Hospital Phuket<br>Dibuk Hospital</p></div>
+    <div class="nearby-box"><i class="fa-solid fa-shopping-bag"></i><h3>Shopping & Entertainment</h3><p>Robinson Lifestyle Chalong</p> <p>Central Phuket Floresta</p></div>
+  </div>
+</section>
+
+<section id="rental" class="section">
+  <h2 class="section-title">Rental Details</h2>
+  <div class="rental-box">
+    <div class="rental-card rental-card-main">
+      <p class="rental-contract">65,000 THB / Month Year Contract · 2 Months Deposit + 1 Month Advance</p>
+    </div>
+    <div class="rental-card rental-card-info">
+      <h3>What's included</h3>
+      <ul class="included">
+        <li>High-Speed Internet (Separate Router on Each Floor)</li>
+        <li>Solar Rooftop – Save up to 1,000 THB/month</li>
+        <li>Common Area Maintenance Fee</li>
+        <li>Pest Control Service</li>
+        <li>Garden Maintenance Every 2 Months</li>
+      </ul>
+      <h3>Not included</h3>
+      <ul class="not-included">
+        <li>Electricity & Water (Government Rates)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Schedule a Private Viewing</h2>
+  <p>Directly with the Owner</p>
+  <a href="https://wa.me/4915903789344">Contact via WhatsApp (TH / ENG / German)</a>
+</section>
+
+<section id="share" class="section share-section">
+  <h2 class="section-title">Share</h2>
+  <div class="share-grid">
+    <button type="button" class="share-card share-facebook" data-share="facebook">
+      <span class="share-icon"><i class="fab fa-facebook-f"></i></span>
+    </button>
+    <button type="button" class="share-card share-x" data-share="x">
+      <span class="share-icon"><i class="fab fa-x"></i></span>
+    </button>
+    <button type="button" class="share-card share-line" data-share="line">
+      <span class="share-icon"><i class="fab fa-line"></i></span>
+    </button>
+    <button type="button" class="share-card share-whatsapp" data-share="whatsapp">
+      <span class="share-icon"><i class="fab fa-whatsapp"></i></span>
+    </button>
+  </div>
+</section>
+
+<div class="footer">
+  © 2026 phukethomebyowners.com | All rights reserved.
+</div>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <div class="nav prev">&#10094;</div>
+  <div class="nav next">&#10095;</div>
+</div>
+
+<script>
+var modal = document.getElementById('imageModal');
+var modalImg = document.getElementById('modalImg');
+var span = document.getElementsByClassName('close')[0];
+
+var images = document.querySelectorAll('.gallery img');
+var currentIndex = 0;
+
+function showImage(index) {
+  modalImg.src = images[index].src;
+  currentIndex = index;
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+}
+
+function showPrev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+}
+
+images.forEach(function(img, index) {
+  img.onclick = function(){
+    currentIndex = index;
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    setTimeout(() => {
+      modal.style.opacity = "1";
+      modalImg.style.transform = "scale(1)";
+    }, 10);
+  }
+});
+
+span.onclick = function() {
+  modal.style.opacity = "0";
+  modalImg.style.transform = "scale(0.8)";
+  setTimeout(() => modal.style.display = "none", 300);
+}
+
+modal.onclick = function() {
+  modal.style.opacity = "0";
+  modalImg.style.transform = "scale(0.8)";
+  setTimeout(() => modal.style.display = "none", 300);
+}
+
+modalImg.onclick = function(event) {
+  event.stopPropagation();
+}
+
+function getShareDetails() {
+  const pageUrl = window.location.href;
+  const pageTitle = document.title || 'House for Rent | Supalai Bella Wichit Phuket';
+  const pageDescription = 'New house for rent at Supalai Bella Wichit, Phuket. Available now, 3 bedrooms, solar roof, home automation.';
+  const message = `${pageTitle} - ${pageDescription}`;
+  return { pageUrl, pageTitle, pageDescription, message };
+}
+
+function openShare(platform) {
+  const { pageUrl, pageTitle, message } = getShareDetails();
+  const encodedUrl = encodeURIComponent(pageUrl);
+  const encodedText = encodeURIComponent(message);
+  let shareUrl = '';
+
+  switch (platform) {
+    case 'facebook':
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+      break;
+    case 'x':
+      shareUrl = `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`;
+      break;
+    case 'viber':
+      shareUrl = `viber://forward?text=${encodeURIComponent(message + ' ' + pageUrl)}`;
+      break;
+    case 'line':
+      shareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(message + ' ' + pageUrl)}`;
+      break;
+    case 'email':
+      shareUrl = `mailto:?subject=${encodeURIComponent(pageTitle)}&body=${encodeURIComponent(message + '\n\n' + pageUrl)}`;
+      break;
+    case 'linkedin':
+      shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+      break;
+    case 'whatsapp':
+      shareUrl = `https://api.whatsapp.com/send?text=${encodedText}%20${encodedUrl}`;
+      break;
+    case 'copy':
+      const copyBtn = document.getElementById('shareCopyBtn');
+      const copyFeedback = document.getElementById('shareCopyFeedback');
+      navigator.clipboard.writeText(pageUrl).then(() => {
+        if (copyBtn) copyBtn.classList.add('copied');
+        if (copyFeedback) {
+          copyFeedback.style.display = 'inline-block';
+        }
+        setTimeout(() => {
+          if (copyBtn) copyBtn.classList.remove('copied');
+          if (copyFeedback) {
+            copyFeedback.style.display = 'none';
+          }
+        }, 1800);
+      }).catch(() => {
+        alert('Copy link failed. Please copy manually.');
+      });
+      return;
+    default:
+      return;
+  }
+
+  window.open(shareUrl, '_blank', 'noopener,noreferrer');
+}
+
+document.querySelectorAll('.share-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    openShare(this.dataset.share);
+  });
+});
+
+document.addEventListener('keydown', function(event) {
+  if (modal.style.display === "block") {
+    if (event.key === "ArrowLeft") {
+      showPrev();
+    } else if (event.key === "ArrowRight") {
+      showNext();
+    } else if (event.key === "Escape") {
+      modal.style.opacity = "0";
+      modalImg.style.transform = "scale(0.8)";
+      setTimeout(() => modal.style.display = "none", 300);
+    }
+  }
+});
+
+// support touch swipe on modal image for mobile devices
+let touchStartX = 0;
+modalImg.addEventListener('touchstart', function(e) {
+  touchStartX = e.changedTouches[0].screenX;
+});
+modalImg.addEventListener('touchend', function(e) {
+  const touchEndX = e.changedTouches[0].screenX;
+  const delta = touchEndX - touchStartX;
+  if (Math.abs(delta) > 50) {
+    if (delta < 0) {
+      showNext();
+    } else {
+      showPrev();
+    }
+  }
+});
+
+// arrow button handlers
+var prevBtn = document.querySelector('.modal .nav.prev');
+var nextBtn = document.querySelector('.modal .nav.next');
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showPrev();
+  });
+  nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showNext();
+  });
+}
+
+// prevent modal click close when interacting with nav elements or image
+var modalContainer = document.getElementById('imageModal');
+modalContainer.addEventListener('click', function() {
+  modal.style.opacity = "0";
+  modalImg.style.transform = "scale(0.8)";
+  setTimeout(() => modal.style.display = "none", 300);
+});
+
+// Hide CTA section when viewing via /agent (or ?agent=) for agent-facing links
+(function hideCtaForAgent() {
+  const url = new URL(window.location.href);
+  const isAgentPath = url.pathname.includes('/agent');
+  const hasAgentParam = url.searchParams.has('agent');
+  if (isAgentPath || hasAgentParam) {
+    document.querySelectorAll('.cta').forEach(el => el.remove());
+  }
+})();
+
+// Exclusive Agent mode
+(function exclusiveAgentMode() {
+  const url = new URL(window.location.href);
+  const hasExclusiveAgentParam = url.searchParams.has('exclusiveAgent');
+  if (hasExclusiveAgentParam) {
+    // Change CTA to agent contact info
+    document.querySelectorAll('.cta').forEach(cta => {
+      cta.innerHTML = `
+        <h2>Schedule a Private Viewing</h2>
+        <p>Contact V LUXURY GROUP Agent</p>
+        <p><a href="https://wa.me/66943197177" target="_blank">WhatsApp</a></p>
+        <p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">Line</a></p>
+      `;
+    });
+
+    // Show an alternate set of gallery images for agents
+    const exclusiveImages = [
+      'assets/aerial-view-townhouse-roof-with-solar-panels.jpg',
+      'assets/solar-energy-monitoring-app-smart-home-system.jpg',
+      'assets/swimming-pool-clubhouse.jpg',
+      'assets/modern-2-story-townhouse-exterior-for-rent.jpg',
+      'assets/modern-living-room-l-shaped-sofa-with-marble-table.jpg',
+      'assets/modern-kitchen-design-light-wood-cabinets-with-built-in-oven.jpg'
+    ];
+
+    const galleryImgs = document.querySelectorAll('.gallery img');
+    galleryImgs.forEach((img, idx) => {
+      if (exclusiveImages[idx]) {
+        img.src = exclusiveImages[idx];
+      }
+    });
+  }
+})();
+
+// Language selector
+(function languageSelector() {
+  const translations = {
+    en: {
+      heroTitle: 'New House for Rent',
+      heroSub1: '📅 Ready to Move In Now',
+      heroSub2: '@ Supalai Bella Wichit · Phuket',
+      sectionHighlights: 'Property Highlights',
+      sectionGallery: 'Gallery',
+      sectionSmart: 'Smart & Sustainable Living',
+      sectionLocation: 'Prime Location',
+      sectionNearby: 'Nearby International Schools & Hospitals',
+      sectionRental: 'Rental Details',
+      ctaTitle: 'Schedule a Private Viewing',
+      ctaSub: 'Directly with the Owner',
+      ctaButton: 'Contact via WhatsApp (TH / ENG / German)',
+      ctaHtml: `<h2>Schedule a Private Viewing</h2><p>Directly with the Owner</p><a href="https://wa.me/4915903789344" target="_blank">Contact via WhatsApp (TH / ENG / German)</a>`,
+      agentCtaHtml: `<h2>Schedule a Private Viewing</h2><p>Contact V LUXURY GROUP Agent</p><p><a href="https://wa.me/66943197177" target="_blank">WhatsApp</a></p><p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">Line</a></p>`,
+      features: [
+        {title: 'Spacious House', desc: ['149 sq.m. Living Area', '174 sq.m. Land Area']},
+        {title: '3 Bedrooms', desc: ['Private & Comfortable', 'Premium pocket spring mattress', 'with 500-thread-count dust mite–resistant bedding']},
+        {title: '3 Bathrooms', desc: ['Modern Design', 'Glass shower partition', 'Bathroom power outlets']},
+        {title: '2 Parking', desc: ['Secure Covered Spaces']},
+        {title: 'House with Garden', desc: ['Beautiful Landscaped Garden']},
+        {title: 'Solar Roof', desc: ['Energy Efficient - Save electricity bill up to 1,000 THB/month']},
+        {title: 'Home Automation', desc: ['Smart Living', 'Google Home Compatible']},
+        {title: 'Common Area', desc: ['Children\'s Playground', 'Fitness center', 'Swimming pool', '24-hour security']}
+      ],
+      smart: {title: 'Smart & Sustainable Living', desc: 'Equipped with Solar Roof Top and Home Automation system for modern lifestyle comfort and energy efficiency.'},
+      nearby: [
+        {title: 'International Schools', desc: 'HeadStart International School<br>Oak Meadow International School'},
+        {title: 'Central Phuket Area', desc: 'Phuket Town<br>Chalong'},
+        {title: 'Hospitals', desc: 'Bangkok Hospital Phuket<br>Dibuk Hospital'},
+        {title: 'Shopping & Entertainment', desc: 'Robinson Lifestyle Chalong<br>Central Phuket Floresta'}
+      ],
+      rental: {
+        price: '65,000 THB / Month (1-Year Contract)',
+        contract: 'Year Contract · 2 Months Deposit + 1 Month Advance',
+        includedTitle: '✅ Included in the Rent:',
+        included: ['High-Speed Internet (Separate Router on Each Floor)', 'Solar Rooftop – Save up to 1,000 THB/month on electricity', 'Common Area Maintenance Fee', 'Pest Control Service', 'Garden Maintenance (Every 2 Months)'],
+        notIncludedTitle: '❌ Not Included:',
+        notIncluded: ['Electricity & Water (Government Rates)']
+      },
+      agentCta: {
+        title: 'Schedule a Private Viewing',
+        subtitle: 'Contact V LUXURY GROUP Agent',
+        whatsappLabel: 'WhatsApp',
+        lineLabel: 'Line'
+      },
+      footer: 'phukethomebyowners.com'
+    },
+    de: {
+      heroTitle: 'Neues Haus zur Miete',
+      heroSub1: '📅 Sofort bezugsfertig',
+      heroSub2: '@ Supalai Bella Wichit · Phuket',
+      sectionHighlights: 'Highlights der Immobilie',
+      sectionGallery: 'Galerie',
+      sectionSmart: 'Smartes & nachhaltiges Wohnen',
+      sectionLocation: 'Top Lage',
+      sectionNearby: 'Nahegelegene internationale Schulen & Krankenhäuser',
+      sectionRental: 'Mietdetails',
+      ctaTitle: 'Vereinbaren Sie eine Besichtigung',
+      ctaSub: 'Direkt vom Eigentümer',
+      ctaButton: 'Kontakt über WhatsApp (TH / ENG / Deutsch)',
+      features: [
+        {title: 'Geräumiges Haus', desc: ['149 qm Wohnfläche', '174 qm Grundstücksfläche']},
+        {title: '3 Schlafzimmer', desc: ['Privat & Komfortabel', 'Premium Taschenfederkernmatratze', 'mit 500-Fadenzahl milbenresistenten Bettwäsche']},
+        {title: '3 Bäder', desc: ['Modernes Design', 'Glastrennwand Dusche', 'Badezimmer Stromanschlüsse']},
+        {title: '2 Parkplätze', desc: ['Sichere überdachte Plätze']},
+        {title: 'Haus mit Garten', desc: ['Schöner landschaftlich gestalteter Garten']},
+        {title: 'Solar Dach', desc: ['Energiesparend - Stromkosten bis zu 1.000 THB/Monat sparen']},
+        {title: 'Hausautomation', desc: ['Intelligentes Wohnen', 'Google Home kompatibel']},
+        {title: 'Gemeinschaftsbereich', desc: ['Kinderspielplatz', 'Fitnesscenter', 'Schwimmbad', '24-Stunden-Sicherheit']}
+      ],
+      smart: {title: 'Intelligentes & nachhaltiges Wohnen', desc: 'Ausgestattet mit Solar-Dach und Hausautomationssystem für modernen Lebensstilkomfort und Energieeffizienz.'},
+      nearby: [
+        {title: 'Internationale Schulen', desc: 'HeadStart International School<br>Oak Meadow International School'},
+        {title: 'Zentrales Phuket Gebiet', desc: 'Phuket Stadt<br>Chalong'},
+        {title: 'Krankenhäuser', desc: 'Bangkok Hospital Phuket<br>Dibuk Hospital'},
+        {title: 'Einkaufen & Unterhaltung', desc: 'Robinson Lifestyle Chalong<br>Central Phuket Floresta'}
+      ],
+      rental: {
+        price: '65.000 THB / Monat (1-Jahres-Vertrag)',
+        contract: 'Jahresvertrag · 2 Monats Kaution + 1 Monat Vorauszahlung',
+        includedTitle: '✅ Im Mietpreis enthalten:',
+        included: ['Hochgeschwindigkeits-Internet (Separater Router pro Etage)', 'Solar-Dach – Stromkosten bis zu 1.000 THB/Monat sparen', 'Gemeinschaftsbereich Wartungsgebühr', 'Schädlingsbekämpfung Service', 'Gartenpflege (Alle 2 Monate)'],
+        notIncludedTitle: '❌ Nicht enthalten:',
+        notIncluded: ['Strom & Wasser (Regierungstarife)']
+      },
+      agentCta: {
+        title: 'Termin für eine private Besichtigung vereinbaren',
+        subtitle: 'Kontakt V LUXURY GROUP Agent',
+        whatsappLabel: 'WhatsApp',
+        lineLabel: 'Line'
+      },
+      footer: 'phukethomebyowners.com'
+    },
+    ru: {
+      heroTitle: 'Новый дом в аренду',
+      heroSub1: '📅 Готов к заселению сейчас',
+      heroSub2: '@ Supalai Bella Wichit · Phuket',
+      sectionHighlights: 'Основные характеристики',
+      sectionGallery: 'Галерея',
+      sectionSmart: 'Умная и экологичная жизнь',
+      sectionLocation: 'Премиальное расположение',
+      sectionNearby: 'Рядом международные школы и больницы',
+      sectionRental: 'Условия аренды',
+      ctaTitle: 'Записаться на просмотр',
+      ctaSub: 'Напрямую с владельцем',
+      ctaButton: 'Связаться через WhatsApp (TH / ENG / Немецкий)',
+      features: [
+        {title: 'Просторный дом', desc: ['149 кв.м. Жилая площадь', '174 кв.м. Площадь участка']},
+        {title: '3 Спальни', desc: ['Частные и комфортные', 'Премиум матрас с карманными пружинами', 'с постельным бельем с 500 нитями, устойчивым к клещам']},
+        {title: '3 Ванные комнаты', desc: ['Современный дизайн', 'Стеклянная перегородка душа', 'Розетки в ванной']},
+        {title: '2 Парковки', desc: ['Безопасные крытые места']},
+        {title: 'Дом с садом', desc: ['Красивый ландшафтный сад']},
+        {title: 'Солнечная крыша', desc: ['Энергоэффективный - Экономьте на счетах за электричество до 1,000 THB/месяц']},
+        {title: 'Домашняя автоматизация', desc: ['Умное проживание', 'Совместимо с Google Home']},
+        {title: 'Общая зона', desc: ['Детская площадка', 'Фитнес-центр', 'Бассейн', 'Круглосуточная охрана']}
+      ],
+      smart: {title: 'Умное и устойчивое проживание', desc: 'Оснащен солнечной крышей и системой домашней автоматизации для комфорта современного образа жизни и энергоэффективности.'},
+      nearby: [
+        {title: 'Международные школы', desc: 'HeadStart International School<br>Oak Meadow International School'},
+        {title: 'Центральная зона Пхукета', desc: 'Город Пхукет<br>Чалонг'},
+        {title: 'Больницы', desc: 'Больница Бангкок Пхукет<br>Больница Дибук'},
+        {title: 'Шопинг и развлечения', desc: 'Robinson Lifestyle Chalong<br>Central Phuket Floresta'}
+      ],
+      rental: {
+        price: '65,000 THB / Месяц (1-летний контракт)',
+        contract: 'Годовой контракт · 2 месяца залог + 1 месяц аванс',
+        includedTitle: '✅ Включено в аренду:',
+        included: ['Высокоскоростной интернет (Отдельный роутер на каждом этаже)', 'Солнечная крыша – Экономьте до 1,000 THB/месяц на электричестве', 'Плата за обслуживание общей зоны', 'Услуга по борьбе с вредителями', 'Уход за садом (Каждые 2 месяца)'],
+        notIncludedTitle: '❌ Не включено:',
+        notIncluded: ['Электричество и вода (Государственные тарифы)']
+      },
+      agentCta: {
+        title: 'Записаться на частный просмотр',
+        subtitle: 'Связаться с агентом V LUXURY GROUP',
+        whatsappLabel: 'WhatsApp',
+        lineLabel: 'Line'
+      },
+      footer: 'phukethomebyowners.com'
+    }
+  };
+
+  function setLanguage(lang) {
+    const data = translations[lang] || translations.en;
+    document.documentElement.lang = lang;
+
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      const [title, sub1, sub2] = hero.querySelectorAll('h1, p');
+      if (title) title.textContent = data.heroTitle;
+      if (sub1) sub1.textContent = data.heroSub1;
+      if (sub2) sub2.textContent = data.heroSub2;
+    }
+
+    const sectionTitles = document.querySelectorAll('h2.section-title');
+    if (sectionTitles && sectionTitles.length >= 6) {
+      sectionTitles[0].textContent = data.sectionHighlights;
+      sectionTitles[1].textContent = data.sectionGallery;
+      sectionTitles[2].textContent = data.sectionSmart;
+      sectionTitles[3].textContent = data.sectionLocation;
+      sectionTitles[4].textContent = data.sectionNearby;
+      sectionTitles[5].textContent = data.sectionRental;
+    }
+
+    // Rental section translation
+    const rentalBox = document.querySelector('.rental-box');
+    if (rentalBox) {
+      const priceTag = rentalBox.querySelector('.price-tag');
+      const contract = rentalBox.querySelector('.rental-contract');
+      const includedTitle = rentalBox.querySelector('.rental-included-title');
+      const includedList = rentalBox.querySelector('.rental-included-list');
+      const notIncludedTitle = rentalBox.querySelector('.rental-not-included-title');
+      const notIncludedList = rentalBox.querySelector('.rental-not-included-list');
+
+      if (priceTag) priceTag.textContent = data.rental.price;
+      if (contract) contract.textContent = data.rental.contract;
+      if (includedTitle) includedTitle.textContent = data.rental.includedTitle;
+      if (notIncludedTitle) notIncludedTitle.textContent = data.rental.notIncludedTitle;
+
+      if (includedList) {
+        const lis = includedList.querySelectorAll('li');
+        lis.forEach((li, idx) => {
+          if (data.rental.included[idx]) li.textContent = data.rental.included[idx];
+        });
+      }
+
+      if (notIncludedList) {
+        const lis = notIncludedList.querySelectorAll('li');
+        lis.forEach((li, idx) => {
+          if (data.rental.notIncluded[idx]) li.textContent = data.rental.notIncluded[idx];
+        });
+      }
+    }
+
+    const url = new URL(window.location.href);
+    const isExclusiveAgent = url.searchParams.has('exclusiveAgent');
+
+    const cta = document.querySelector('.cta');
+    if (cta) {
+      if (isExclusiveAgent) {
+        cta.innerHTML = `
+          <h2>${data.agentCta.title}</h2>
+          <p>${data.agentCta.subtitle}</p>
+          <p><a href="https://wa.me/66943197177" target="_blank">${data.agentCta.whatsappLabel}</a></p>
+          <p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">${data.agentCta.lineLabel}</a></p>
+        `;
+      } else {
+        const title = cta.querySelector('h2');
+        const sub = cta.querySelector('p');
+        const button = cta.querySelector('a');
+        if (title) title.textContent = data.ctaTitle;
+        if (sub) sub.textContent = data.ctaSub;
+        if (button) button.textContent = data.ctaButton;
+      }
+    }
+
+    localStorage.setItem('preferredLang', lang);
+    const select = document.getElementById('langSelect');
+    if (select) select.value = lang;
+  }
+
+  const url = new URL(window.location.href);
+  const paramLang = url.searchParams.get('lang');
+  const storedLang = localStorage.getItem('preferredLang');
+  const initialLang = paramLang || storedLang || 'en';
+  setLanguage(initialLang);
+
+  const select = document.getElementById('langSelect');
+  if (select) {
+    select.addEventListener('change', (event) => {
+      const nextLang = event.target.value;
+      setLanguage(nextLang);
+      url.searchParams.set('lang', nextLang);
+      window.history.replaceState({}, '', url);
+    });
+  }
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.top-nav nav');
+  const navLinks = document.querySelectorAll('.top-nav nav a');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.top-nav')) {
+        navMenu.classList.remove('open');
+      }
+    });
+  }
+})();
+
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+</script>
+<script>
+(function() {
+  const STORAGE_KEY = 'phuketHomeSiteData';
+
+  function getSavedSiteData() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : window.defaultSiteData;
+    } catch (error) {
+      console.warn('Cannot parse saved site data', error);
+      return window.defaultSiteData;
+    }
+  }
+
+  function setElementText(selector, value) {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = value;
+  }
+
+  function applySiteData(data) {
+    if (!data) return;
+
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      if (data.hero && data.hero.backgroundImage) {
+        hero.style.background = `linear-gradient(rgba(0,25,80,0.75),rgba(0,25,80,0.75)), url('${data.hero.backgroundImage}') center/cover no-repeat`;
+      }
+      setElementText('.hero h1', data.hero.title || '');
+      const heroParagraphs = hero.querySelectorAll('p');
+      if (heroParagraphs[0]) heroParagraphs[0].textContent = data.hero.sub1 || '';
+      if (heroParagraphs[1]) heroParagraphs[1].textContent = data.hero.sub2 || '';
+    }
+
+    const featureBoxes = document.querySelector('.features');
+    if (featureBoxes && Array.isArray(data.features)) {
+      featureBoxes.innerHTML = ''; 
+      data.features.forEach(feature => {
+        const box = document.createElement('div');
+        box.className = 'feature-box';
+        box.innerHTML = `
+          <i class="${feature.icon || 'fa-solid fa-star'}"></i>
+          <h3>${feature.title || ''}</h3>
+          ${Array.isArray(feature.desc) ? feature.desc.map(line => `<p>${line}</p>`).join('') : `<p>${feature.desc || ''}</p>`}
+        `;
+        featureBoxes.appendChild(box);
+      });
+    }
+
+    const gallery = document.querySelector('.gallery');
+    if (gallery && Array.isArray(data.galleryImages)) {
+      gallery.innerHTML = '';
+      data.galleryImages.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Gallery image';
+        gallery.appendChild(img);
+      });
+    }
+
+    const cta = document.querySelector('.cta');
+    if (cta && data.cta) {
+      setElementText('.cta h2', data.cta.title || '');
+      const paragraphs = cta.querySelectorAll('p');
+      if (paragraphs[0]) paragraphs[0].textContent = data.cta.subtitle || '';
+      const button = cta.querySelector('a');
+      if (button) {
+        button.textContent = data.cta.buttonText || '';
+        if (data.cta.buttonLink) button.href = data.cta.buttonLink;
+      }
+    }
+
+    const rentalBox = document.querySelector('.rental-box');
+    if (rentalBox && data.rental) {
+      setElementText('.price-tag', data.rental.price || '');
+      const contract = rentalBox.querySelector('.rental-contract');
+      if (contract) contract.textContent = data.rental.contract || '';
+      const includedList = rentalBox.querySelector('.rental-included-list');
+      if (includedList && Array.isArray(data.rental.included)) {
+        includedList.innerHTML = data.rental.included.map(item => `<li>${item}</li>`).join('');
+      }
+      const notIncludedList = rentalBox.querySelector('.rental-not-included-list');
+      if (notIncludedList && Array.isArray(data.rental.notIncluded)) {
+        notIncludedList.innerHTML = data.rental.notIncluded.map(item => `<li>${item}</li>`).join('');
+      }
+    }
+
+    const footer = document.querySelector('.footer');
+    if (footer && data.footer) {
+      footer.textContent = data.footer;
+    }
+  }
+
+  function initGalleryModal() {
+    if (typeof images === 'undefined') return;
+    images = document.querySelectorAll('.gallery img');
+    images.forEach(function(img, index) {
+      img.onclick = function() {
+        currentIndex = index;
+        modal.style.display = 'block';
+        modalImg.src = this.src;
+        setTimeout(() => {
+          modal.style.opacity = '1';
+          modalImg.style.transform = 'scale(1)';
+        }, 10);
+      };
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const siteData = getSavedSiteData();
+    applySiteData(siteData);
+    initGalleryModal();
+  });
+})();
+</script>
+
+</body>
+</html>

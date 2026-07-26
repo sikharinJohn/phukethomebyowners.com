@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House Viewing Appointment | Supalai Bella Thalang</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', Helvetica, Arial, sans-serif; background: #f6f8fc; color: #1a2340; }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    height: 64px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  }
+  .topbar a { display: flex; align-items: center; gap: 8px; color: #6b7a99; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color .2s; }
+  .topbar a:hover { color: #1a56db; }
+  .topbar .logo { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; color: #0d1b2e; text-transform: uppercase; }
+
+  .hero {
+    background: linear-gradient(90deg, #003c8f, #0056d6);
+    color: white; text-align: center;
+    padding: 52px 24px 48px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -40%; right: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,168,75,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,168,75,0.18); border: 1px solid rgba(200,168,75,0.4);
+    color: #f0d080; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em;
+    text-transform: uppercase; padding: 5px 16px; border-radius: 999px; margin-bottom: 20px;
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px,4vw,38px); margin-bottom: 10px; position: relative; }
+  .hero p { color: rgba(255,255,255,0.65); font-size: 0.9rem; position: relative; }
+
+  .form-wrap { max-width: 700px; margin: 0 auto; padding: 36px 20px 64px; display: flex; flex-direction: column; gap: 20px; }
+
+  .card { background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 20px; padding: 28px; }
+  .card-blue { background: linear-gradient(90deg, #003c8f, #0056d6); border: none; color: white; }
+  .card-blue .card-title { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.15); }
+  .card-blue .card-sub { color: rgba(255,255,255,0.65); border-bottom-color: rgba(255,255,255,0.12); }
+  .card-blue .field label { color: rgba(255,255,255,0.9); }
+  .card-blue .field input { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); color: white; }
+  .card-blue .field input::placeholder { color: rgba(255,255,255,0.45); }
+  .card-blue .field input:focus { border-color: rgba(255,255,255,0.6); box-shadow: 0 0 0 3px rgba(255,255,255,0.1); }
+  .card-blue .pill-btn { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: white; }
+  .card-blue .pill-btn.active { background: white; color: #003c8f; border-color: white; }
+  .card-blue .resident-row { background: rgba(255,255,255,0.1); }
+  .card-blue .person-label, .card-blue .mini-label { color: rgba(255,255,255,0.65); }
+  .card-blue .resident-row input { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); color: white; }
+  .card-blue .resident-row input::placeholder { color: rgba(255,255,255,0.4); }
+  .card-blue #petPhotoUpload1, .card-blue #petPhotoUpload2 { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); }
+  .card-blue #petPhotoUpload1 i, .card-blue #petPhotoUpload2 i,
+  .card-blue #petPhotoUpload1 span, .card-blue #petPhotoUpload2 span { color: rgba(255,255,255,0.6) !important; }
+  .card-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6b7a99; padding-bottom: 14px; border-bottom: 1px solid rgba(0,0,0,0.07); margin-bottom: 18px; }
+  .card-sub { font-size: 0.8rem; color: #6b7a99; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(0,0,0,0.07); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .span2 { grid-column: span 2; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 0.78rem; font-weight: 600; color: #1a2340; }
+  .field input, .field textarea, .field select {
+    width: 100%; padding: 0 13px; height: 42px;
+    border: 1px solid rgba(0,0,0,0.12); border-radius: 10px;
+    font-size: 14px; font-family: 'Poppins', sans-serif;
+    color: #1a2340; background: white; outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field textarea:focus {
+    border-color: #1a56db;
+    box-shadow: 0 0 0 3px rgba(26,86,219,0.1);
+  }
+  .field textarea { height: auto; padding: 10px 13px; resize: vertical; }
+
+  .pill-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .pill-btn {
+    padding: 10px 24px; border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.12);
+    background: white; color: #1a2340;
+    font-size: 0.88rem; font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer; transition: all .2s;
+  }
+  .pill-btn.active {
+    border-color: #1a56db; background: #1a56db; color: white;
+  }
+
+  .resident-row {
+    display: grid; grid-template-columns: 80px 1fr 1fr; gap: 10px;
+    align-items: center; background: #f6f8fc;
+    border-radius: 12px; padding: 12px 14px;
+  }
+  .resident-row .person-label { font-size: 0.8rem; font-weight: 600; color: #6b7a99; }
+  .resident-row .mini-field { display: flex; flex-direction: column; gap: 4px; }
+  .resident-row .mini-label { font-size: 0.7rem; color: #6b7a99; }
+  .resident-row input {
+    width: 100%; height: 38px; padding: 0 10px;
+    border: 1px solid rgba(0,0,0,0.12); border-radius: 8px;
+    font-size: 13px; font-family: 'Poppins', sans-serif;
+    color: #1a2340; background: white; outline: none;
+  }
+  .resident-row input:focus { border-color: #1a56db; box-shadow: 0 0 0 3px rgba(26,86,219,0.1); }
+
+  .submit-btn {
+    background: linear-gradient(90deg, #003c8f, #0056d6);
+    color: white; border: none; border-radius: 999px;
+    padding: 16px; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.03em;
+    box-shadow: 0 8px 24px rgba(13,27,46,0.2);
+    transition: all .3s;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(13,27,46,0.3); }
+
+  .hidden { display: none !important; }
+
+  .success-card { background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 20px; padding: 56px 32px; text-align: center; }
+  .success-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    margin: 0 auto 24px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(22,163,74,0.3);
+  }
+  .success-icon i { color: white; font-size: 24px; }
+  .success-card h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #0d1b2e; margin-bottom: 10px; }
+  .success-card p { font-size: 0.9rem; color: #6b7a99; margin-bottom: 28px; }
+  .reset-btn {
+    background: none; border: 1px solid rgba(0,0,0,0.12); border-radius: 999px;
+    padding: 10px 24px; font-size: 0.85rem; cursor: pointer;
+    color: #6b7a99; font-family: 'Poppins', sans-serif; transition: all .2s;
+  }
+  .reset-btn:hover { background: #f6f8fc; color: #1a2340; }
+
+  @media (max-width: 600px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .span2 { grid-column: span 1; }
+    .topbar { padding: 0 16px; }
+    .resident-row { grid-template-columns: 60px 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <a href="thalang181.html"><i class="fa-solid fa-arrow-left"></i> Back to listing</a>
+  <span class="logo">Phuket Home</span>
+  <div style="width:96px;"></div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge"><i class="fa-regular fa-calendar-check"></i> Supalai Bella Thalang</div>
+  <h1>House Viewing Appointment</h1>
+  <p>Tell us about your household so the owner can prepare the right home for you.</p>
+</div>
+
+<!-- Form wrap -->
+<div class="form-wrap">
+
+  <!-- Success state -->
+  <div id="successCard" class="success-card hidden">
+    <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+    <h2>Request Received</h2>
+    <p id="successMsg"></p>
+    <p id="successContact" style="font-size:0.82rem;color:#003c8f;font-weight:600;margin-bottom:24px;"></p>
+    <button class="reset-btn" onclick="resetForm()">Submit Another Request</button>
+  </div>
+
+  <!-- Form -->
+  <form id="appointmentForm" onsubmit="handleSubmit(event)" style="display:flex; flex-direction:column; gap:20px;">
+
+    <!-- Contact -->
+    <div class="card">
+      <div class="card-title">Contact Information</div>
+
+      <div class="field" style="margin-bottom:20px;">
+        <label>I am a *</label>
+        <div class="pill-group" id="contactTypeGroup">
+          <button type="button" class="pill-btn" data-value="customer" onclick="selectPill('contactType', this)">Customer</button>
+          <button type="button" class="pill-btn" data-value="agent" onclick="selectPill('contactType', this)">Agent</button>
+        </div>
+        <input type="hidden" id="contactType" name="contactType" required>
+      </div>
+
+      <div class="grid2">
+        <div class="field span2">
+          <label for="fullName">Full name *</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Smith" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+66 8x xxx xxxx" required>
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" required>
+        </div>
+        <div class="field">
+          <label for="contactAlt">LINE ID or WhatsApp</label>
+          <input type="text" id="contactAlt" name="contactAlt" placeholder="LINE ID or +66 8x xxx xxxx">
+        </div>
+      </div>
+    </div>
+
+    <!-- Household -->
+    <div class="card card-blue">
+      <div class="card-title">Household</div>
+      <div class="card-sub">Who will be living in the property?</div>
+
+      <div class="field" style="margin-bottom:20px; max-width:180px;">
+        <label for="residentCount">Number of residents *</label>
+        <input type="number" id="residentCount" name="residentCount" min="0" max="20" placeholder="0" required oninput="updateResidents(this.value)">
+      </div>
+
+      <div id="residentRows" class="hidden" style="display:flex; flex-direction:column; gap:10px; padding-top:16px; border-top:1px dashed rgba(0,0,0,0.07);">
+        <label style="font-size:0.78rem; font-weight:600;">Resident details</label>
+        <div id="residentList" style="display:flex; flex-direction:column; gap:10px;"></div>
+      </div>
+    </div>
+
+    <!-- Dates -->
+    <div class="card">
+      <div class="card-title">Dates</div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="field">
+          <label>Preferred viewing date & time *</label>
+          <div style="display:flex; gap:10px;">
+            <input type="date" id="viewingDate" name="viewingDate" required style="flex:1; height:42px; padding:0 13px; border:1px solid rgba(0,0,0,0.12); border-radius:10px; font-size:14px; font-family:Poppins,sans-serif; color:#1a2340; outline:none;">
+            <input type="time" id="viewingTime" name="viewingTime" required style="width:130px; height:42px; padding:0 13px; border:1px solid rgba(0,0,0,0.12); border-radius:10px; font-size:14px; font-family:Poppins,sans-serif; color:#1a2340; outline:none;">
+          </div>
+        </div>
+        <div class="field">
+          <label for="moveInDate">Intended move-in date *</label>
+          <input type="date" id="moveInDate" name="moveInDate" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pets -->
+    <div class="card card-blue">
+      <div class="card-title">Pets</div>
+      <div class="card-sub">Do you have any pets that will live at the property?</div>
+
+      <div class="field" style="margin-bottom:0;">
+        <div class="pill-group" id="hasPetsGroup">
+          <button type="button" class="pill-btn" data-value="yes" onclick="selectPill('hasPets', this); togglePets(true)">Yes</button>
+          <button type="button" class="pill-btn" data-value="no" onclick="selectPill('hasPets', this); togglePets(false)">No</button>
+        </div>
+        <input type="hidden" id="hasPets" name="hasPets">
+      </div>
+
+      <div id="petDetails" class="hidden" style="padding-top:16px; border-top:1px dashed rgba(0,0,0,0.07); margin-top:16px; display:flex; flex-direction:column; gap:16px;">
+        <div class="grid2">
+          <div class="field">
+            <label for="petType">Type / breed</label>
+            <input type="text" id="petType" name="petType" placeholder="e.g. Dog - Golden Retriever">
+          </div>
+          <div class="field">
+            <label for="petCount">Number of pets</label>
+            <input type="number" id="petCount" name="petCount" min="1">
+          </div>
+        </div>
+        <div class="field">
+          <label>Photos of your pet</label>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <div id="petPhotoUpload1" onclick="document.getElementById('petPhoto1').click()"
+              style="width:160px; height:160px; border:2px dashed rgba(0,0,0,0.15); border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer; background:#f6f8fc; overflow:hidden; position:relative; transition:border-color .2s;">
+              <i class="fa-solid fa-camera" style="font-size:28px; color:#6b7a99;"></i>
+              <span style="font-size:0.75rem; color:#6b7a99; text-align:center; line-height:1.4;">Photo 1</span>
+              <img id="petPhotoPreview1" src="" alt="" style="display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:12px;">
+            </div>
+            <input type="file" id="petPhoto1" name="petPhoto1" accept="image/*" style="display:none;" onchange="previewPetPhoto(this, '1')">
+
+            <div id="petPhotoUpload2" onclick="document.getElementById('petPhoto2').click()"
+              style="width:160px; height:160px; border:2px dashed rgba(0,0,0,0.15); border-radius:14px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer; background:#f6f8fc; overflow:hidden; position:relative; transition:border-color .2s;">
+              <i class="fa-solid fa-camera" style="font-size:28px; color:#6b7a99;"></i>
+              <span style="font-size:0.75rem; color:#6b7a99; text-align:center; line-height:1.4;">Photo 2</span>
+              <img id="petPhotoPreview2" src="" alt="" style="display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:12px;">
+            </div>
+            <input type="file" id="petPhoto2" name="petPhoto2" accept="image/*" style="display:none;" onchange="previewPetPhoto(this, '2')">
+          </div>
+          <span style="font-size:0.72rem; color:#6b7a99; margin-top:4px;">JPG, PNG — max 5MB each</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="card">
+      <div class="card-title">Additional Notes</div>
+      <div class="field">
+        <textarea id="notes" name="notes" rows="4" placeholder="Anything else we should know before your viewing?"></textarea>
+      </div>
+    </div>
+
+    <!-- Honeypot (hidden from humans, bots fill it) -->
+    <input type="text" name="website" id="honeypot" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+
+    <!-- CAPTCHA -->
+    <div class="card" style="border:2px solid #e0e7ff;">
+      <div class="card-title" style="color:#003c8f;">Verification</div>
+      <div class="card-sub">Please answer the question below to confirm you are not a bot</div>
+      <div class="field" style="max-width:280px;">
+        <label id="captchaQuestion" style="font-size:1rem;font-weight:700;color:#0d1b2e;"></label>
+        <input type="number" id="captchaAnswer" placeholder="Answer" autocomplete="off"
+          style="height:46px;padding:0 14px;border:1.5px solid #c7d2e8;border-radius:10px;font-size:1rem;font-family:inherit;outline:none;">
+        <span id="captchaError" style="color:#e53e3e;font-size:0.8rem;display:none;">Incorrect answer. Please try again.</span>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Appointment Request</button>
+
+  </form>
+</div>
+
+<script>
+function selectPill(groupId, btn) {
+  const group = btn.parentElement;
+  group.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(groupId).value = btn.dataset.value;
+}
+
+function updateResidents(val) {
+  const n = Math.max(0, parseInt(val) || 0);
+  const list = document.getElementById('residentList');
+  const rows = document.getElementById('residentRows');
+
+  const current = list.children.length;
+
+  if (n > current) {
+    for (let i = current; i < n; i++) {
+      const row = document.createElement('div');
+      row.className = 'resident-row';
+      row.innerHTML = `
+        <span class="person-label">Person ${i + 1}</span>
+        <div class="mini-field">
+          <span class="mini-label">Age *</span>
+          <input type="number" name="resident_age_${i}" min="0" max="120" placeholder="e.g. 35" required>
+        </div>
+        <div class="mini-field">
+          <span class="mini-label">Nationality *</span>
+          <input type="text" name="resident_nationality_${i}" placeholder="e.g. Thai" required>
+        </div>
+      `;
+      list.appendChild(row);
+    }
+  } else {
+    while (list.children.length > n) {
+      list.removeChild(list.lastChild);
+    }
+  }
+
+  rows.style.display = n > 0 ? 'flex' : 'none';
+  rows.classList.toggle('hidden', n === 0);
+}
+
+function togglePets(show) {
+  const el = document.getElementById('petDetails');
+  el.classList.toggle('hidden', !show);
+  el.style.display = show ? 'flex' : 'none';
+}
+
+function previewPetPhoto(input, slot) {
+  const preview = document.getElementById('petPhotoPreview' + slot);
+  const wrap = document.getElementById('petPhotoUpload' + slot);
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+      wrap.querySelector('i').style.display = 'none';
+      wrap.querySelector('span').style.display = 'none';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// CAPTCHA
+let _captchaAnswer = 0;
+function initCaptcha() {
+  const ops = ['+', '-', '×'];
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  let a, b;
+  if (op === '+') { a = Math.ceil(Math.random()*9)+1; b = Math.ceil(Math.random()*9)+1; _captchaAnswer = a + b; }
+  else if (op === '-') { a = Math.ceil(Math.random()*9)+5; b = Math.ceil(Math.random()*4)+1; _captchaAnswer = a - b; }
+  else { a = Math.ceil(Math.random()*5)+1; b = Math.ceil(Math.random()*4)+1; _captchaAnswer = a * b; }
+  document.getElementById('captchaQuestion').textContent = `${a} ${op} ${b} = ?`;
+  document.getElementById('captchaAnswer').value = '';
+  document.getElementById('captchaError').style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', initCaptcha);
+
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  // Honeypot check
+  if (document.getElementById('honeypot').value) return;
+
+  // CAPTCHA check
+  const userAns = parseInt(document.getElementById('captchaAnswer').value, 10);
+  if (isNaN(userAns) || userAns !== _captchaAnswer) {
+    document.getElementById('captchaError').style.display = 'block';
+    document.getElementById('captchaAnswer').focus();
+    initCaptcha();
+    return;
+  }
+  document.getElementById('captchaError').style.display = 'none';
+
+  const form = document.getElementById('appointmentForm');
+  const btn = form.querySelector('button[type="submit"]');
+  const origText = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const data = new FormData(form);
+    // attach contactType hidden value
+    data.set('contactType', document.getElementById('contactType').value);
+    data.set('hasPets', document.getElementById('hasPets').value);
+
+    // attach pet photos from input elements
+    const p1 = document.getElementById('petPhoto1');
+    const p2 = document.getElementById('petPhoto2');
+    if (p1?.files?.[0]) data.set('petPhoto1', p1.files[0]);
+    if (p2?.files?.[0]) data.set('petPhoto2', p2.files[0]);
+
+    const res = await fetch('/api/submit-viewing', { method: 'POST', body: data });
+    const json = await res.json();
+
+    if (!res.ok || !json.ok) throw new Error(json.error || 'Server error');
+
+    const contactAlt = (document.getElementById('contactAlt').value || '').trim();
+    const emailVal = (document.getElementById('email').value || '').trim();
+    const msgEl = document.getElementById('successMsg');
+    const contactEl = document.getElementById('successContact');
+    msgEl.innerHTML = 'Thank you. Our team will contact you to <strong>confirm your appointment</strong> or <strong>arrange an alternative date and time</strong>.';
+    const channels = [];
+    if (contactAlt) channels.push(contactAlt);
+    if (emailVal) channels.push(emailVal);
+    contactEl.innerHTML = channels.length
+      ? '📩 We will reach you via: ' + channels.join(' / ')
+      : '';
+
+    form.classList.add('hidden');
+    document.getElementById('successCard').classList.remove('hidden');
+    document.getElementById('successCard').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch (err) {
+    alert('เกิดข้อผิดพลาด: ' + err.message + '\nกรุณาลองใหม่อีกครั้ง');
+    btn.disabled = false;
+    btn.textContent = origText;
+  }
+}
+
+function resetForm() {
+  document.getElementById('appointmentForm').reset();
+  initCaptcha();
+  document.getElementById('appointmentForm').classList.remove('hidden');
+  document.getElementById('appointmentForm').style.display = 'flex';
+  document.getElementById('successCard').classList.add('hidden');
+  document.getElementById('residentList').innerHTML = '';
+  document.getElementById('residentRows').classList.add('hidden');
+  document.getElementById('petDetails').classList.add('hidden');
+  document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+  [1, 2].forEach(n => {
+    const preview = document.getElementById('petPhotoPreview' + n);
+    const wrap = document.getElementById('petPhotoUpload' + n);
+    if (preview) { preview.src = ''; preview.style.display = 'none'; }
+    if (wrap) {
+      wrap.querySelector('i').style.display = '';
+      wrap.querySelector('span').style.display = '';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

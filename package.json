@@ -1,0 +1,15 @@
+{
+  "name": "phukethomebyowners",
+  "version": "1.0.0",
+  "description": "Static site with admin upload support for Phuket Home by Owners",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "multer": "^2.2.0",
+    "nodemailer": "^9.0.3"
+  }
+}
