@@ -8,8 +8,8 @@ window.defaultSiteData = {
   "cta": {
     "title": "Schedule a Private Viewing",
     "subtitle": "Directly with the Owner",
-    "buttonText": "Contact via WhatsApp (TH / ENG / German)",
-    "buttonLink": "https://wa.me/4915903789344"
+    "buttonText": "Request Viewing",
+    "buttonLink": "viewing.html"
   },
   "galleryImages": [
     "assets/Thalang/supalai-bella-thalang-phuket-living-room-open-plan.jpg",

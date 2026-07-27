@@ -286,7 +286,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 /* ---- FEATURES ---- */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -777,6 +777,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
   .rental-box { grid-template-columns: 1fr; }
 
+  .features { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
   .hero-stats { gap: 14px; }
   .hero-stat span { font-size: 1.6rem; }
 
@@ -792,10 +794,11 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     <span class="logo">Phuket Home</span>
     <nav>
       <a href="#hero">Home</a>
-      <a href="#highlights">Highlights</a>
       <a href="#gallery">Gallery</a>
+      <a href="#highlights">Highlights</a>
       <a href="#contact">Contact</a>
       <a href="#location">Location</a>
+      <a href="#nearby">Nearby</a>
       <a href="#rental">Rental</a>
     </nav>
     <div class="lang-switcher" aria-label="Language selector">
@@ -822,9 +825,35 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
       <div class="hero-stat-divider"></div>
       <div class="hero-stat"><span>2</span><small>Parking</small></div>
     </div>
-    <a href="viewing.html" class="hero-cta">Schedule a Viewing</a>
+    <a href="viewing.html" class="hero-cta">Request Viewing</a>
   </div>
   <div class="hero-scroll"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<section id="gallery" class="section">
+  <h2 class="section-title">Gallery</h2>
+  <div class="gallery">
+    <div class="gallery-item"><img src="assets/Thalang/725758620_27612228151800199_5926466642975033747_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/733964178_1556729662709346_5929403566085746450_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/735304700_1556729452709367_9084474709921712181_n (1).jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-living-room-open-plan.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-house-exterior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-dining-room-interior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-relaxing-corner-sofa.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-modern-kitchen-zone.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-dining-area-table.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-sofa-garden-view.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-l-shaped-kitchen-dishwasher.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-master-bedroom.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-bedroom-interior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-working-room-office.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-hallway-decoration.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-modern-bathroom-shower.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-small-bathroom.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-laundry-utility-area.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-garden-outdoor-seating.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-backyard-lawn.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
+  </div>
 </section>
 
 <section id="highlights" class="section">
@@ -865,35 +894,9 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
 <section id="contact" class="cta">
   <h2>Schedule a Private Viewing</h2>
-  <p>Directly with the Owner</p>
-  <a href="https://wa.me/4915903789344" target="_blank">Contact via WhatsApp (TH / ENG / German)</a>
+  <a href="viewing.html">Request Viewing</a>
 </section>
 
-<section id="gallery" class="section">
-  <h2 class="section-title">Gallery</h2>
-  <div class="gallery">
-    <div class="gallery-item"><img src="assets/Thalang/725758620_27612228151800199_5926466642975033747_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/733964178_1556729662709346_5929403566085746450_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/735304700_1556729452709367_9084474709921712181_n (1).jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-living-room-open-plan.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-house-exterior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-dining-room-interior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-relaxing-corner-sofa.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-modern-kitchen-zone.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-dining-area-table.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-sofa-garden-view.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-l-shaped-kitchen-dishwasher.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-master-bedroom.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-bedroom-interior.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-working-room-office.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-hallway-decoration.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-modern-bathroom-shower.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-small-bathroom.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-laundry-utility-area.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-garden-outdoor-seating.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-    <div class="gallery-item"><img src="assets/Thalang/supalai-bella-thalang-phuket-backyard-lawn.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
-  </div>
-</section>
 
 <section id="location" class="section">
   <h2 class="section-title">Prime Location</h2>
@@ -932,9 +935,8 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
   <h2 class="section-title">Rental Details</h2>
   <div class="rental-box">
     <div class="rental-card rental-card-main">
-      <div class="price-tag">50,000 THB / Month</div>
+      <div class="price-tag">45,000 THB / Month</div>
       <p class="rental-contract">Year Contract · 2 Months Deposit + 1 Month Advance</p>
-      <a href="https://wa.me/4915903789344" target="_blank" class="cta-button">Contact via WhatsApp</a>
     </div>
     <div class="rental-card rental-card-info">
       <h3 class="rental-included-title">What's included</h3>
@@ -954,8 +956,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
 <section class="cta">
   <h2>Schedule a Private Viewing</h2>
-  <p>Directly with the Owner</p>
-  <a href="https://wa.me/4915903789344">Contact via WhatsApp (TH / ENG / German)</a>
+  <a href="viewing.html">Request Viewing</a>
 </section>
 
 <section id="share" class="section share-section">
@@ -1196,9 +1197,9 @@ modalContainer.addEventListener('click', function() {
       sectionNearby: 'Nearby International School & Beaches',
       sectionRental: 'Rental Details',
       ctaTitle: 'Schedule a Private Viewing',
-      ctaSub: 'Directly with the Owner',
-      ctaButton: 'Contact via WhatsApp (TH / ENG / German)',
-      ctaHtml: `<h2>Schedule a Private Viewing</h2><p>Directly with the Owner</p><a href="https://wa.me/4915903789344" target="_blank">Contact via WhatsApp (TH / ENG / German)</a>`,
+      ctaSub: '',
+      ctaButton: 'Request Viewing',
+      ctaHtml: `<h2>Schedule a Private Viewing</h2><a href="https://wa.me/4915903789344" target="_blank">Request Viewing</a>`,
       agentCtaHtml: `<h2>Schedule a Private Viewing</h2><p>Contact V LUXURY GROUP Agent</p><p><a href="https://wa.me/66943197177" target="_blank">WhatsApp</a></p><p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">Line</a></p>`,
       features: [
         {title: 'Spacious House', desc: ['200 sq.m. Living Area', '205 sq.m. Land Area']},
@@ -1215,7 +1216,7 @@ modalContainer.addEventListener('click', function() {
         {title: 'Shopping & Entertainment', desc: 'Lotus’s Thalang<br>Makro Thalang<br>Robinson Lifestyle Thalang'}
       ],
       rental: {
-        price: '50,000 THB / Month',
+        price: ' 45,000 THB / Month',
         contract: 'Year Contract · 2 Months Deposit + 1 Month Advance',
         includedTitle: 'What\'s included',
         included: ['High-Speed Internet', 'Common Area Maintenance Fee', 'Pest Control Service', 'Garden Maintenance (Every 2 Months)'],
@@ -1232,7 +1233,7 @@ modalContainer.addEventListener('click', function() {
     },
     de: {
       heroTitle: 'Haus zur Miete',
-      heroSub1: '📅 Verfügbar ab 3. August 2026',
+      heroSub1: '📅 Jetzt verfügbar',
       heroSub2: '@ Supalai Bella Thalang · Phuket',
       sectionHighlights: 'Objekthighlights',
       sectionGallery: 'Galerie',
@@ -1241,9 +1242,9 @@ modalContainer.addEventListener('click', function() {
       sectionNearby: 'Internationale Schulen & Strände in der Nähe',
       sectionRental: 'Mietdetails',
       ctaTitle: 'Private Besichtigung vereinbaren',
-      ctaSub: 'Direkt vom Eigentümer',
-      ctaButton: 'Kontakt über WhatsApp (TH / ENG / Deutsch)',
-      ctaHtml: `<h2>Private Besichtigung vereinbaren</h2><p>Direkt vom Eigentümer</p><a href="https://wa.me/4915903789344" target="_blank">Kontakt über WhatsApp (TH / ENG / Deutsch)</a>`,
+      ctaSub: '',
+      ctaButton: 'Besichtigung anfragen',
+      ctaHtml: `<h2>Private Besichtigung vereinbaren</h2><a href="https://wa.me/4915903789344" target="_blank">Besichtigung anfragen</a>`,
       agentCtaHtml: `<h2>Private Besichtigung vereinbaren</h2><p>Kontakt V LUXURY GROUP Agent</p><p><a href="https://wa.me/66943197177" target="_blank">WhatsApp</a></p><p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">Line</a></p>`,
       features: [
         {title: 'Geräumiges Haus', desc: ['200 m² Wohnfläche', '205 m² Grundstück']},
@@ -1260,7 +1261,7 @@ modalContainer.addEventListener('click', function() {
         {title: 'Einkaufen & Freizeit', desc: 'Lotus’s Thalang<br>Makro Thalang<br>Robinson Lifestyle Thalang'}
       ],
       rental: {
-        price: '50.000 THB / Monat',
+        price: '45.000 THB / Monat',
         contract: 'Jahresvertrag · 2 Monate Kaution + 1 Monat Vorauszahlung',
         includedTitle: 'Im Mietpreis enthalten',
         included: ['High-Speed-Internet', 'Gemeinschaftskosten', 'Schädlingsbekämpfung', 'Gartenpflege (alle 2 Monate)'],
@@ -1277,7 +1278,7 @@ modalContainer.addEventListener('click', function() {
     },
     ru: {
       heroTitle: 'Дом в аренду',
-      heroSub1: '📅 Доступен с 3 августа 2026',
+      heroSub1: '📅 Доступен сейчас',
       heroSub2: '@ Supalai Bella Thalang · Пхукет',
       sectionHighlights: 'Основные характеристики',
       sectionGallery: 'Галерея',
@@ -1286,9 +1287,9 @@ modalContainer.addEventListener('click', function() {
       sectionNearby: 'Международные школы и пляжи рядом',
       sectionRental: 'Условия аренды',
       ctaTitle: 'Записаться на просмотр',
-      ctaSub: 'Напрямую от владельца',
-      ctaButton: 'Связаться через WhatsApp (TH / ENG / Немецкий)',
-      ctaHtml: `<h2>Записаться на просмотр</h2><p>Напрямую от владельца</p><a href="https://wa.me/4915903789344" target="_blank">Связаться через WhatsApp (TH / ENG / Немецкий)</a>`,
+      ctaSub: '',
+      ctaButton: 'Запросить просмотр',
+      ctaHtml: `<h2>Записаться на просмотр</h2><a href="https://wa.me/4915903789344" target="_blank">Запросить просмотр</a>`,
       agentCtaHtml: `<h2>Записаться на просмотр</h2><p>Связаться с агентом V LUXURY GROUP</p><p><a href="https://wa.me/66943197177" target="_blank">WhatsApp</a></p><p><a href="https://line.me/ti/p/hKay3Ls9SG" target="_blank">Line</a></p>`,
       features: [
         {title: 'Просторный дом', desc: ['200 кв.м жилая площадь', '205 кв.м участок']},
@@ -1305,7 +1306,7 @@ modalContainer.addEventListener('click', function() {
         {title: 'Шопинг и развлечения', desc: 'Lotus’s Thalang<br>Makro Thalang<br>Robinson Lifestyle Thalang'}
       ],
       rental: {
-        price: '50,000 THB / месяц',
+        price: '45,000 THB / месяц',
         contract: 'Годовой контракт · 2 месяца депозит + 1 месяц предоплата',
         includedTitle: 'Включено в аренду',
         included: ['Высокоскоростной интернет', 'Обслуживание общей территории', 'Обработка от вредителей', 'Уход за садом (каждые 2 месяца)'],
@@ -1336,8 +1337,8 @@ modalContainer.addEventListener('click', function() {
 
     const sectionTitles = document.querySelectorAll('h2.section-title');
     if (sectionTitles && sectionTitles.length >= 5) {
-      sectionTitles[0].textContent = data.sectionHighlights;
-      sectionTitles[1].textContent = data.sectionGallery;
+      sectionTitles[0].textContent = data.sectionGallery;
+      sectionTitles[1].textContent = data.sectionHighlights;
       sectionTitles[2].textContent = data.sectionLocation;
       sectionTitles[3].textContent = data.sectionNearby;
       sectionTitles[4].textContent = data.sectionRental;
