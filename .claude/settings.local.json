@@ -13,7 +13,14 @@
       "Bash(node /Users/sikharinwandee/Websites/phukethomebyowners.com-main/server.js)",
       "Bash(git status *)",
       "Bash(git rm *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(gh repo *)",
+      "Bash(git remote *)",
+      "Bash(gh auth *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)"
     ]
   }
 }
