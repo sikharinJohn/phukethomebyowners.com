@@ -156,7 +156,8 @@ app.post('/api/submit-viewing', rateLimit, uploadViewingFiles.fields([
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
-      auth: { user: GMAIL_USER, pass: GMAIL_PASS }
+      auth: { user: GMAIL_USER, pass: GMAIL_PASS },
+      family: 4
     });
     await transporter.sendMail({
       from: `"Phuket Home" <${GMAIL_USER}>`,
