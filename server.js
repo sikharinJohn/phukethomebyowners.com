@@ -13,6 +13,7 @@ const ASSETS_DIR = path.join(__dirname, 'assets');
 const ALLOWED_ORIGINS = [
   'https://phukethomebyowners.com',
   'https://www.phukethomebyowners.com',
+  'https://phukethomebyownerscom-production.up.railway.app',
   'http://localhost:3000',
   'http://127.0.0.1:3000'
 ];
