@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const multer = require('multer');
 const nodemailer = require('nodemailer');
 const path = require('path');
@@ -8,6 +9,20 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const ASSETS_DIR = path.join(__dirname, 'assets');
+
+const ALLOWED_ORIGINS = [
+  'https://phukethomebyowners.com',
+  'https://www.phukethomebyowners.com',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return callback(null, true);
+    callback(new Error('Not allowed by CORS'));
+  }
+}));
 
 if (!fs.existsSync(ASSETS_DIR)) {
   fs.mkdirSync(ASSETS_DIR, { recursive: true });

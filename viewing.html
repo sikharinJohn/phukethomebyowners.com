@@ -329,8 +329,11 @@
 </div>
 
 <script>
-// Get a free access key at https://web3forms.com (enter your email, no account needed)
-const WEB3FORMS_ACCESS_KEY = 'bbf57e8b-801a-4b47-88ac-532725fa6e0f';
+// TODO: replace with your actual Railway service URL after deploying server.js there
+// (e.g. https://phukethomebyowners-production.up.railway.app), or a custom API subdomain.
+const API_BASE_URL = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+  ? ''
+  : 'https://railway.com/project/888f0f71-7e24-497c-8bd6-cea1b24fef9c';
 
 function selectPill(groupId, btn) {
   const group = btn.parentElement;
@@ -443,14 +446,10 @@ async function handleSubmit(e) {
     if (p1?.files?.[0]) data.set('petPhoto1', p1.files[0]);
     if (p2?.files?.[0]) data.set('petPhoto2', p2.files[0]);
 
-    data.set('access_key', WEB3FORMS_ACCESS_KEY);
-    data.set('subject', `[Viewing] ${document.getElementById('fullName').value || 'No name'} — Supalai Bella Thalang`);
-    data.set('from_name', 'Phuket Home Viewing Form');
-
-    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    const res = await fetch(`${API_BASE_URL}/api/submit-viewing`, { method: 'POST', body: data });
     const json = await res.json();
 
-    if (!res.ok || !json.success) throw new Error(json.message || 'Server error');
+    if (!res.ok || !json.ok) throw new Error(json.error || 'Server error');
 
     const contactAlt = (document.getElementById('contactAlt').value || '').trim();
     const emailVal = (document.getElementById('email').value || '').trim();
