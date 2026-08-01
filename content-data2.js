@@ -77,6 +77,11 @@ window.defaultSiteData = {
         "Fitness center",
         "24-hour security"
       ]
+    },
+    {
+      "icon": "fa-solid fa-key",
+      "title": "Secure Digital Door System",
+      "desc": []
     }
   ],
   "rental": {
