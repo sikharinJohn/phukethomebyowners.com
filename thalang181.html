@@ -12,6 +12,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
 :root {
@@ -729,6 +730,21 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
 .close:hover { color: white; }
 
+.download-btn {
+  position: absolute;
+  top: 20px;
+  right: 84px;
+  color: rgba(255,255,255,0.75);
+  font-size: 22px;
+  transition: color 0.2s;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 201;
+  text-decoration: none;
+}
+
+.download-btn:hover { color: white; }
+
 .modal .nav {
   position: absolute;
   top: 50%;
@@ -832,6 +848,11 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
 <section id="gallery" class="section">
   <h2 class="section-title">Gallery</h2>
+  <div id="downloadAllWrap" style="display:none; text-align:center; margin-bottom: 24px;">
+    <button id="downloadAllBtn" type="button" class="hero-cta" style="border:0; cursor:pointer;">
+      <i class="fa-solid fa-download"></i> Download All Photos
+    </button>
+  </div>
   <div class="gallery">
     <div class="gallery-item"><img src="assets/Thalang/725758620_27612228151800199_5926466642975033747_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
     <div class="gallery-item"><img src="assets/Thalang/733964178_1556729662709346_5929403566085746450_n.jpg" alt="Gallery image"><div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div></div>
@@ -987,6 +1008,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
 <div id="imageModal" class="modal">
   <span class="close">&times;</span>
+  <a id="downloadBtn" class="download-btn" download title="Download photo"><i class="fa-solid fa-download"></i></a>
   <img class="modal-content" id="modalImg">
   <div class="nav prev">&#10094;</div>
   <div class="nav next">&#10095;</div>
@@ -996,12 +1018,21 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 var modal = document.getElementById('imageModal');
 var modalImg = document.getElementById('modalImg');
 var span = document.getElementsByClassName('close')[0];
+var downloadBtn = document.getElementById('downloadBtn');
 
 var images = document.querySelectorAll('.gallery img');
 var currentIndex = 0;
 
+function updateDownloadLink(src) {
+  downloadBtn.href = src;
+  downloadBtn.setAttribute('download', src.split('/').pop());
+}
+
+downloadBtn.addEventListener('click', function(e) { e.stopPropagation(); });
+
 function showImage(index) {
   modalImg.src = images[index].src;
+  updateDownloadLink(images[index].src);
   currentIndex = index;
 }
 
@@ -1020,6 +1051,7 @@ images.forEach(function(img, index) {
     currentIndex = index;
     modal.style.display = "block";
     modalImg.src = this.src;
+    updateDownloadLink(this.src);
     setTimeout(() => {
       modal.style.opacity = "1";
       modalImg.style.transform = "scale(1)";
@@ -1155,6 +1187,48 @@ modalContainer.addEventListener('click', function() {
   if (isAgentPath || hasAgentParam) {
     document.querySelectorAll('.cta').forEach(el => el.remove());
   }
+})();
+
+// Show "Download All Photos" button only for agent-facing links
+(function agentDownloadAll() {
+  const url = new URL(window.location.href);
+  const isAgentPath = url.pathname.includes('/agent');
+  const hasAgentParam = url.searchParams.has('agent');
+  if (!isAgentPath && !hasAgentParam) return;
+
+  const wrap = document.getElementById('downloadAllWrap');
+  const btn = document.getElementById('downloadAllBtn');
+  wrap.style.display = 'block';
+
+  btn.addEventListener('click', async function() {
+    const origHtml = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing download…';
+
+    try {
+      const zip = new JSZip();
+      const imgs = document.querySelectorAll('.gallery img');
+      await Promise.all(Array.from(imgs).map(async (img, i) => {
+        const res = await fetch(img.src);
+        const blob = await res.blob();
+        const filename = img.src.split('/').pop() || `photo-${i + 1}.jpg`;
+        zip.file(filename, blob);
+      }));
+
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(zipBlob);
+      link.download = 'Supalai-Bella-Thalang-Photos.zip';
+      link.click();
+      URL.revokeObjectURL(link.href);
+    } catch (err) {
+      console.error('Download all failed:', err);
+      alert('Could not prepare the download. Please try again.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = origHtml;
+    }
+  });
 })();
 
 // Exclusive Agent mode
@@ -1552,6 +1626,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
         currentIndex = index;
         modal.style.display = 'block';
         modalImg.src = this.src;
+        updateDownloadLink(this.src);
         setTimeout(() => {
           modal.style.opacity = '1';
           modalImg.style.transform = 'scale(1)';
